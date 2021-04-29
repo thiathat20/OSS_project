@@ -5,19 +5,19 @@
 
 //계정
 typedef struct{
-	char id[ID_len];
-	int pw;
+        char id[ID_len];
+        int pw;
 }user;
 
 //게시판
 typedef struct{
-	char title[title];
-	char user[ID_len];
-	char post[1000]; // 500자
-	int view;
-	int like;
-	int index;
-}board;
+        char title[title_len];
+        char user[ID_len];
+        char post[1000]; // 500자
+        int view;
+        int like;
+        int index;
+}post;
 
 int selectMenu(); // 원하는 기능을 선택하는 함수
 
