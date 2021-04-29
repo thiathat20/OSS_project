@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include "manager.h"
+//#include "manager.h"
 #define DEBUG_MODE
 
 
