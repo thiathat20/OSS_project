@@ -3,12 +3,6 @@
 #define ID_len 20
 #define title_len 200
 
-//계정
-typedef struct{
-        char id[ID_len];
-        int pw;
-}User;
-
 //게시판
 typedef struct{
         char title[title_len];

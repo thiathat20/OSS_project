@@ -1,4 +1,5 @@
-#include "crud.h"
+#include "post_crud.h"
+#include "user_crud.h"
 
 // 1. 계정생성(아이디 비번 입력 받아 저장) (입력: 계정 구조체 배열 포인터, 출력:)
 void addUser(User u);

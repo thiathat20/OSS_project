@@ -1,7 +1,8 @@
 #ifndef HEARDER
     #define HEADER
     #include <stdio.h>
-    #include "crud.h"
+    #include "post_crud.h"
+    #include "user_crud.h"
 #endif
 
 
