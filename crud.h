@@ -7,7 +7,7 @@
 typedef struct{
         char id[ID_len];
         int pw;
-}user;
+}User;
 
 //게시판
 typedef struct{
@@ -17,15 +17,15 @@ typedef struct{
         int view;
         int like;
         int index;
-}post;
+}Post;
 
 int selectMenu(); // 원하는 기능을 선택하는 함수
 
 // 글 추가하는 함수
-int addpost(post *p);
+int addpost(Post *p);
 // 하나의 글을 출력하는 함수
-void readpost(post p);
+void readpost(Post p);
 // 글을 수정하는 함수
-int updatepost(post *p);
+int updatepost(Post *p);
 // 글을 목록에서 삭제하는 함수
-int deletepost(post *p);
+int deletepost(Post *p);
