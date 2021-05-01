@@ -38,9 +38,9 @@ int main(void){
         	else if (menu == 5){
         		//함수넣기
         	}
-		else if (menu == 6){
-        		//함수넣기
-		}
+			else if (menu == 6){
+					//함수넣기
+			}
         	else if (menu == 7){
         		//함수넣기
         	}
