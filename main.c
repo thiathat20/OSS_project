@@ -2,7 +2,6 @@
 
 #include <stdio.h>
 #include "board.h"
-#include "crud.h"
 
 #define DEBUG_MODE
 
@@ -13,13 +12,17 @@ int main(void){
     #endif
 
 	User userlist[100];
- 	Post boardlist[100];
+ 	// Post boardlist[100];
 	int menu;
+	
 	//하나로 합칠 수 있을거 같은데... board.count 이런 느낌?
-	int board_count = loadData(boardlist); // file open/load
-	int user_count = loadData(userlist);
-	int board_index = board_count;
-	int user_index = user_count;
+	// int board_count = loadData(boardlist); // file open/load
+	// int user_count = loadData(userlist);
+	
+	// int board_count = 0; // file open/load
+	int user_count = 0;
+	// int board_index = board_count;
+	// int user_index = user_count;
 
 	while(1){
 		menu = selectMenu();
@@ -30,6 +33,7 @@ int main(void){
 				continue;
 			}
 		if(menu == 1){
+			addUser(userlist[user_count]);
 		}
 		else if(menu == 2){
 		}

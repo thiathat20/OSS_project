@@ -1,9 +1,13 @@
-#include <stdio.h>
-#include "crud.h"
+#ifndef HEARDER
+    #define HEADER
+    #include <stdio.h>
+    #include "crud.h"
+#endif
+
 
 int selectMenu(){ // 원하는 기능을 선택하는 함수
     int menu;
-    printf("\n*** 과일 스토어 관리 ***\n");
+    printf("\n*** 게시판 ***\n");
     printf("1. 계정 생성\n");
     printf("2. 게시글 보기\n");
     printf("3. 게시글 목록 보기\n");
