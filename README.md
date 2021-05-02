@@ -44,12 +44,14 @@
 - CRUD 기능 설계
 - CRUD 정의 및 기초 구현 (Main)
 - Team Project Repository 관리
+- 계정 관련 함수 구현
 
 ### - 21800333 박훈성😂
 #### 맡은 역할
 - CRUD 기능 설계
 - Wiki & README 디자인
 - CRUD 정의 및 기초 구현 (Support)
+- 게시글 관련 함수 구현
 
 
 ----------------------
