@@ -23,18 +23,17 @@ int main(void){
 	// int board_count = 0; // file open/load
 	int user_count = 0;
 	// int board_index = board_count;
-	// int user_index = user_count;
+	int user_index = user_count;
 
 	while(1){
 		menu = selectMenu();
 		if(menu == 0) break;
-		if(menu != 1)
+		if(menu != 11)
 			if(user_count == 0){
 				printf("err: 등록된 사용자가 없습니다.\n");
 				continue;
 			}
 		if(menu == 1){
-			addUser(userlist[user_count]);
 		}
 		else if(menu == 2){
 		}
@@ -55,8 +54,10 @@ int main(void){
 		else if(menu == 10){
 		}
 		else if(menu == 11){
+			user_count += addUser(&userlist[user_index++]);
 		}
 		else if(menu == 12){
+			readuser(userlist[0]);
 		}
 	}
 	return 0;

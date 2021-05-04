@@ -7,10 +7,10 @@ typedef struct{
 }User;
 
 // 계정 추가하는 함수
-int adduser(User *p);
+int addUser(User *u);
 // 하나의 계정을 출력하는 함수
-void readuser(User p);
+void readuser(User u);
 // 계정을 수정하는 함수
-int updateuser(User *p);
+int updateuser(User *u);
 // 계정을 목록에서 삭제하는 함수
-int deleteuser(User *p);
+int deleteuser(User *u);

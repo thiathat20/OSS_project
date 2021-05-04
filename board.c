@@ -30,3 +30,5 @@ void saveboard(Post *p, int count);
 int login(User *u);
 // 12. 로그아웃 - 로그인 여부 0
 int logout();
+// 13. 계정 목록 출력
+int userlist(User *u, int count);

@@ -2,7 +2,7 @@
 #include "user_crud.h"
 
 // 1. 계정생성(아이디 비번 입력 받아 저장) (입력: 계정 구조체 배열 포인터, 출력:)
-void addUser(User u);
+    //
 // 2. 게시글 선택후 내용 출력(입력: 게시판 구조체 배열, 출력:) // 리스트 출력 없이 글 번호만 입력
 void printpost(Post p);
 // 3. 게시판 제목 리스트 출력 (입력: 게시판 구조체 배열, 출력:X)
@@ -25,3 +25,4 @@ void saveboard(Post *p, int count);
 int login(User *u);
 // 12. 로그아웃 - 로그인 여부 0
 int logout();
+// 13. 계정 리스트
