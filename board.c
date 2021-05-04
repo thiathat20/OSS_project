@@ -1,21 +1,13 @@
 #ifndef HEARDER
     #define HEADER
     #include <stdio.h>
-    #include "post_crud.h"
-    #include "user_crud.h"
+    #include "board.h"
 #endif
 
 
 
 // 1. 계정생성(아이디 비번 입력 받아 저장) (입력: 계정 구조체 배열 포인터, 출력:)
-void addUser(User u){
-    printf("생성할 ID 입력: ");
-    getchar();
-    scanf("%[^\n]s", u.id);
-    printf("생성할 비밀번호(숫자) 입력: ");
-    scanf("%d", &u.pw);
-    printf("계정이 생성 되었습니다.\n");
-}
+    // user_crud.h
 // 2. 게시글 선택후 내용 출력(입력: 게시판 구조체 배열, 출력:) // 리스트 출력 없이 글 번호만 입력
 void printpost(Post p);
 // 3. 게시판 제목 리스트 출력 (입력: 게시판 구조체 배열, 출력:X)

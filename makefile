@@ -1,5 +1,5 @@
 CC = gcc
-OBJECT = main.c crud.o board.o
+OBJECT = main.c user_crud.o post_crud.o board.o
 TARGET = board
 CFLAGES = -W -Wall
 

@@ -1,4 +1,4 @@
-#include "post_crud.h"
+#define ID_len 20
 
 //계정
 typedef struct{

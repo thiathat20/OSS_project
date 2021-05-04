@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include "board.h"
+#define HEADER
 
 #define DEBUG_MODE
 

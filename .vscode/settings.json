@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "crud.h": "c"
+        "crud.h": "c",
+        "post_crud.h": "c"
     }
 }
