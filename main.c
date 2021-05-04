@@ -59,6 +59,9 @@ int main(void){
 		else if(menu == 12){
 			readuser(userlist[0]);
 		}
+		else if(menu == 13){
+			updateuser(&userlist[0]);
+		}
 	}
 	return 0;
 }
