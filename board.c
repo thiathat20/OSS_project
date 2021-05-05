@@ -42,4 +42,10 @@ int listuser(User *u, int count){
 }
 
 //데이터 선택 함수
-int select_User_DataNo(User u[], int count);
+int select_User_DataNo(User *u, int count){
+    int no;
+ 	listuser(u, count);
+ 	printf("번호는? (취소:0)? ");
+ 	scanf("%d", &no);
+    return no;
+}

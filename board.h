@@ -27,3 +27,6 @@ int login(User *u);
 int logout();
 // 12. 계정 목록 출력
 int listuser(User *u, int count);
+
+//데이터 선택 함수
+int select_User_DataNo(User u[], int count);
