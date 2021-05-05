@@ -22,6 +22,7 @@ int selectMenu(){ // 원하는 기능을 선택하는 함수
     printf("11. 계정 생성\n");
     printf("12. 사용자 목록 확인\n");
     printf("13. 계정 비밀번호 수정\n");
+    printf("14. 계정 삭제\n");
     printf("0. 종료\n\n");
     printf("=> 원하는 메뉴는? ");
     scanf("%d", &menu);
