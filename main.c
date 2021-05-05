@@ -25,6 +25,9 @@ int main(void){
 	// int board_index = board_count;
 	// int user_index = user_count;
 
+
+
+
 	while(1){
 		menu = selectMenu();
 		if(menu == 0) break;
