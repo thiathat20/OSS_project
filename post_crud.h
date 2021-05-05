@@ -16,7 +16,7 @@ typedef struct{
 int selectMenu(); // 원하는 기능을 선택하는 함수
 
 // 글 추가하는 함수
-int addpost(Post *p);
+int addpost(Post *p, char *user_account);
 // 하나의 글을 출력하는 함수
 void readpost(Post p);
 // 글을 수정하는 함수

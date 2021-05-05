@@ -4,6 +4,8 @@
     #include "post_crud.h"
 #endif
 
+#include <string.h>
+
 
 int selectMenu(){ // 원하는 기능을 선택하는 함수
     int menu;
@@ -69,7 +71,7 @@ int deletepost(Post *p){
 }
 
 
-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 /* 이건 board.c 로 가야함.
 // 모든 게시글 목록을 출력하는 함수
 void readPostList(Post *p, int index){
