@@ -75,8 +75,9 @@ int main(void){
 				printf("로그인이 필요합니다\n");
 				continue;
 			}
-			int no = select_User_DataNo(userlist, user_index); // 마스터 계정이면 실행, 아니면 no에 현제 계정 정보가 들어 가도록 수정
-			if(no > 0){
+			// int no = select_User_DataNo(userlist, user_index); // 마스터 계정이면 실행, 아니면 no에 현제 계정 정보가 들어 가도록 수정
+			int no = loginflag; // 일반 사용자 / 위애 코드는 관리자
+			if(no != -1){ // 로그인 여부, 로그인 이용자 번호 따로 분리시키기
 				updateuser(&userlist[no-1]);
 			}
 		}
@@ -85,8 +86,9 @@ int main(void){
 				printf("로그인이 필요합니다\n");
 				continue;
 			}
-			int no = select_User_DataNo(userlist, user_index); // 마스터 계정이면 실행, 아니면 no에 현제 계정 정보가 들어 가도록 수정
-   			if( no > 0){
+			// int no = select_User_DataNo(userlist, user_index); // 마스터 계정이면 실행, 아니면 no에 현제 계정 정보가 들어 가도록 수정
+   			int no = loginflag; // 일반 사용자 / 위애 코드는 관리자
+			if(no != -1){ // 로그인 여부, 로그인 이용자 번호 따로 분리시키기
 				int deleteok ;
 				printf("정말로 삭제하시겠습니까?(삭제:1)");
 				scanf("%d", &deleteok);
@@ -95,6 +97,7 @@ int main(void){
 					user_count--;
 				}
 			}
+			loginflag = -1; // 삭제와 동시에 로그아웃
 		}
 	}
 	return 0;
