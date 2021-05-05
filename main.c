@@ -25,6 +25,26 @@ int main(void){
 	// int board_index = board_count;
 	int user_index = user_count;
 
+	/*
+		메뉴 목록
+		printf("\n*** 게시판 ***\n");
+		printf("1. 게시글 보기\n");
+		printf("2. 게시글 목록 보기\n");
+		printf("3. 게시판 글쓰기\n");
+		printf("4. 게시글 삭제\n");
+		printf("5. 게시글 수정\n");
+		printf("6. 게시글 검색\n");
+		printf("7. 게시글 정렬 순서\n");
+		printf("8. 게시판 저장\n");
+		printf("9. 로그인\n");
+		printf("10. 로그아웃\n");
+		printf("11. 계정 생성\n");
+		printf("12. 사용자 목록 확인\n");
+		printf("0. 종료\n\n");
+		printf("=> 원하는 메뉴는? ");
+	*/
+
+
 	while(1){
 		menu = selectMenu();
 		if(menu == 0) break;
