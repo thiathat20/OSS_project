@@ -6,7 +6,7 @@
 
 
 
-// 1. 계정생성(아이디 비번 입력 받아 저장) (입력: 계정 구조체 배열 포인터, 출력:)
+// 11. 계정생성(아이디 비번 입력 받아 저장) (입력: 계정 구조체 배열 포인터, 출력:)
     // user_crud.h
 // 2. 게시글 선택후 내용 출력(입력: 게시판 구조체 배열, 출력:) // 리스트 출력 없이 글 번호만 입력
 void printpost(Post p);
@@ -26,9 +26,20 @@ void serchpost(Post *p);
 void sortpost(Post *p);
 // 10. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)
 void saveboard(Post *p, int count);
-// 11. 로그인 (입력: 계정 구조체 배열 포인터, 출력:)
+// 9. 로그인 (입력: 계정 구조체 배열 포인터, 출력:)
 int login(User *u);
-// 12. 로그아웃 - 로그인 여부 0
+// 10. 로그아웃 - 로그인 여부 0
 int logout();
-// 13. 계정 목록 출력
-int userlist(User *u, int count);
+// 12. 계정 목록 출력
+int listuser(User *u, int count){
+    printf("\n========게시판 사용자 목록========\n");
+    for(int i=0; i<count; i++){
+        if(u[i].pw == -1) continue;
+   		printf("%2d ", i+1);
+   		readuser(u[i]);
+    }
+    return 0;
+}
+
+//데이터 선택 함수
+int select_User_DataNo(User u[], int count);

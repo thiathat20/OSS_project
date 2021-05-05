@@ -23,7 +23,7 @@ int main(void){
 	// int board_count = 0; // file open/load
 	int user_count = 0;
 	// int board_index = board_count;
-	// int user_index = user_count;
+	int user_index = user_count;
 
 
 
@@ -57,17 +57,17 @@ int main(void){
 		else if(menu == 10){
 		}
 		else if(menu == 11){
-			// user_count += addUser(&userlist[user_index++]);
-			addUser(&userlist[0]);
+			user_count += addUser(&userlist[user_index++]);
+			// addUser(&userlist[0]);
 		}
 		else if(menu == 12){
-			readuser(userlist[0]);
+			listuser(userlist, user_count);
 		}
 		else if(menu == 13){
-			updateuser(&userlist[0]);
+			updateuser(userlist);
 		}
 		else if(menu == 14){
-			deleteuser(&userlist[0]);
+			deleteuser(userlist);
 		}
 	}
 	return 0;

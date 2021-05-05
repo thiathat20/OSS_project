@@ -16,10 +16,6 @@ int addUser(User *u){
 }
 // 하나의 계정을 출력하는 함수
 void readuser(User u){
-    if(u.pw == -1){
-        printf("계정이 없습니다...\n"); // 추후 다중 데이터에서는 삭제
-        return;
-    }
     printf("\t- %s\n", u.id);
 }
 // 계정을 수정하는 함수
