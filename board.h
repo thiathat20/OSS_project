@@ -22,11 +22,11 @@ void sortpost(Post *p);
 // 10. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)
 void saveboard(Post *p, int count);
 // 11. 로그인 (입력: 계정 구조체 배열 포인터, 출력:)
-int login(User *u);
+int login(User *u, int count);
 // 12. 로그아웃 - 로그인 여부 0
 int logout();
 // 12. 계정 목록 출력
-int listuser(User *u, int count);
+void listuser(User *u, int count);
 
 //데이터 선택 함수
 int select_User_DataNo(User u[], int count);

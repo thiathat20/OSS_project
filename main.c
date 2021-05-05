@@ -15,6 +15,7 @@ int main(void){
 	User userlist[100];
  	// Post boardlist[100];
 	int menu;
+	int loginflag = -1; // 로그인 상태 확인 
 	
 	//하나로 합칠 수 있을거 같은데... board.count 이런 느낌?
 	// int board_count = loadData(boardlist); // file open/load
@@ -26,6 +27,9 @@ int main(void){
 	int user_index = user_count;
 
 	while(1){
+		if(loginflag != -1){
+			printf("\n(**로그인 사용자: %s)\n", userlist[loginflag].id);
+		}
 		menu = selectMenu();
 		if(menu == 0) break;
 		if(menu != 11)
@@ -50,8 +54,14 @@ int main(void){
 		else if(menu == 8){
 		}
 		else if(menu == 9){
+			loginflag = login(userlist, user_index);
 		}
 		else if(menu == 10){
+			if(loginflag == -1){
+				printf("로그인이 필요합니다\n");
+				continue;
+			}
+			loginflag = -1;
 		}
 		else if(menu == 11){
 			user_count += addUser(&userlist[user_index++]);
@@ -61,12 +71,20 @@ int main(void){
 			listuser(userlist, user_count);
 		}
 		else if(menu == 13){
+			if(loginflag == -1){
+				printf("로그인이 필요합니다\n");
+				continue;
+			}
 			int no = select_User_DataNo(userlist, user_index); // 마스터 계정이면 실행, 아니면 no에 현제 계정 정보가 들어 가도록 수정
 			if(no > 0){
 				updateuser(&userlist[no-1]);
 			}
 		}
 		else if(menu == 14){
+			if(loginflag == -1){
+				printf("로그인이 필요합니다\n");
+				continue;
+			}
 			int no = select_User_DataNo(userlist, user_index); // 마스터 계정이면 실행, 아니면 no에 현제 계정 정보가 들어 가도록 수정
    			if( no > 0){
 				int deleteok ;
