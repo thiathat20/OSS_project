@@ -60,6 +60,7 @@ int main(void){
 			saveboard(postlist, post_index);
 		}
 		else if(menu == 9){ // 로그안
+			loginflag = -1; // (임시) 기존 로그인 로그이웃
 			loginflag = login(userlist, user_index);
 		}
 		else if(menu == 10){ // 로그아웃

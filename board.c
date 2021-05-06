@@ -84,25 +84,27 @@ void saveboard(Post *list, int n){
 int login(User *u, int count){
     char temp_id[20];
     int temp_pw;
+    ///////////////////////////////////////로그아웃??
     printf("아이디를 입력하세요: ");
     getchar();
     scanf("%[^\n]s", temp_id);
     int no;
     for(no = 0; no<count; no++){
         if(u[no].pw == -1) continue;
-        if(0 == strcmp(u[no].id, temp_id)) break;
-        printf("없는 계정입니다.\n");
-        return -1;
+        if(0 == strcmp(u[no].id, temp_id)){ // 아이디가 일치하면
+            no--;
+            printf("비밀번호를 입력하세요: ");
+            getchar();
+            scanf("%d", &temp_pw);
+            for(no = 0; no<count; no++){
+                if(u[no].pw == temp_pw) return no; // 비밀번호가 일치하면
+            }
+            printf("잘못된 비밀번호입니다.\n");
+            return -1;
+        }
     }
-    no--;
-    printf("비밀번호를 입력하세요: ");
-    getchar();
-    scanf("%d", &temp_pw);
-    if(u[no].pw != temp_pw){
-        printf("잘못된 비밀번호입니다.\n");
-        return -1;
-    }
-    return no;
+    printf("없는 계정입니다.\n");
+    return -1;
 }
 // 10. 로그아웃 - 로그인 여부 0
 int logout();
