@@ -1,3 +1,4 @@
 *.o
 board
 .vscode
+*.txt

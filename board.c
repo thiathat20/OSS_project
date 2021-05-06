@@ -79,6 +79,16 @@ void saveboard(Post *list, int n){
 	fclose(pfile);
     printf("저장 완료\n");
 }
+void saveuser(User *list, int n){
+    FILE* pfile = fopen("user.txt", "wt");
+	for(int i=0; i<n; i++){
+		if(list[i].pw == -1) continue;
+		fprintf(pfile, "%s", list[i].id);
+		fprintf(pfile, "%d ", list[i].pw);
+		fprintf(pfile, "\n");
+	}
+	fclose(pfile);
+}
 
 // 9. 로그인 (입력: 계정 구조체 배열 포인터, 출력:)
 int login(User *u, int count){

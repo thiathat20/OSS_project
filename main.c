@@ -58,6 +58,7 @@ int main(void){
 		}
 		else if(menu == 8){ // 게시판 저장
 			saveboard(postlist, post_index);
+			saveuser(userlist, user_index);
 		}
 		else if(menu == 9){ // 로그안
 			if(loginflag != -1) loginflag = logout(); // 기존 로그인 로그이웃
