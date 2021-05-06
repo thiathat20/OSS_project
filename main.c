@@ -13,17 +13,17 @@ int main(void){
     #endif
 
 	User userlist[100];
- 	// Post boardlist[100];
+ 	Post postlist[100];
 	int menu;
 	int loginflag = -1; // 로그인 상태 확인 
 	
 	//하나로 합칠 수 있을거 같은데... board.count 이런 느낌?
-	// int board_count = loadData(boardlist); // file open/load
+	// int post_count = loadData(boardlist); // file open/load
 	// int user_count = loadData(userlist);
 	
-	// int board_count = 0; // file open/load
-	int user_count = 0;
-	// int board_index = board_count;
+	int post_count = 0; // file open/load
+	int user_count = 0; // 로드 구한 하면 계정 갯수 넣기
+	int post_index = post_count;
 	int user_index = user_count;
 
 	while(1){
@@ -37,21 +37,27 @@ int main(void){
 				printf("err: 등록된 사용자가 없습니다.\n");
 				continue;
 			}
-		if(menu == 1){
+		if(menu != 9 && menu != 12 && menu != 11)
+			if(loginflag == -1){
+				printf("로그인이후 이용가능 합니다.\n");
+				continue;
+			}
+		if(menu == 1){ // 게시글 보기
 		}
-		else if(menu == 2){
+		else if(menu == 2){ // 게시글 목록 보기(제목만 보이도록)
 		}
-		else if(menu == 3) {
+		else if(menu == 3) { // 게시글 쓰기
 		}
-		else if(menu == 4){
+		else if(menu == 4){ // 게시글 삭제
 		}
-		else if(menu == 5){
+		else if(menu == 5){ // 게시글 수정
 		}
-		else if(menu == 6){
+		else if(menu == 6){ // 게시글 검색 -- 키워드, 작성자, ...
 		}
-		else if(menu == 7){
+		else if(menu == 7){ // 게시글 목록 정렬해서 보기
 		}
-		else if(menu == 8){
+		else if(menu == 8){ // 게시판 저장
+			saveboard(postlist, post_index);
 		}
 		else if(menu == 9){ // 로그안
 			loginflag = login(userlist, user_index);
@@ -74,8 +80,7 @@ int main(void){
 				printf("로그인이 필요합니다\n");
 				continue;
 			}
-			// int no = select_User_DataNo(userlist, user_index); // 마스터 계정이면 실행, 아니면 no에 현제 계정 정보가 들어 가도록 수정
-			int no = loginflag; // 일반 사용자 / 위애 코드는 관리자
+			int no = loginflag;
 			if(loginflag != -1){ // 로그인 여부, 로그인 이용자 번호 따로 분리시키기
 				updateuser(&userlist[no-1]);
 			}
@@ -85,8 +90,7 @@ int main(void){
 				printf("로그인이 필요합니다\n");
 				continue;
 			}
-			// int no = select_User_DataNo(userlist, user_index); // 마스터 계정이면 실행, 아니면 no에 현제 계정 정보가 들어 가도록 수정
-   			int no = loginflag; // 일반 사용자 / 위애 코드는 관리자
+			int no = loginflag;
 			if(loginflag != -1){ // 로그인 여부, 로그인 이용자 번호 따로 분리시키기
 				int deleteok ;
 				printf("정말로 삭제하시겠습니까?(삭제:1)");

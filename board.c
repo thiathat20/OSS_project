@@ -64,7 +64,22 @@ void serchpost(Post *p);
 // 9. 생성일 , 추천수, 조회수 (높은순, 낮은순) 기준으로 보기 (입력: 게시판 구조체 배열, 출력:)
 void sortpost(Post *p);
 // 10. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)
-void saveboard(Post *p, int count);
+void saveboard(Post *list, int n){
+    FILE* pfile = fopen("postboard.txt", "wt");
+	for(int i=0; i<n; i++){
+		if(list[i].view == -1) continue;
+		fprintf(pfile, "%s\n", list[i].title);
+        fprintf(pfile, "%s\n", list[i].user);
+        fprintf(pfile, "%s\n", list[i].post);
+		fprintf(pfile, "%d ", list[i].view);
+		fprintf(pfile, "%d ", list[i].like);
+		fprintf(pfile, "%d ", list[i].index);
+		fprintf(pfile, "\n");
+	}
+	fclose(pfile);
+    printf("저장 완료\n");
+}
+
 // 9. 로그인 (입력: 계정 구조체 배열 포인터, 출력:)
 int login(User *u, int count){
     char temp_id[20];
@@ -75,18 +90,15 @@ int login(User *u, int count){
     int no;
     for(no = 0; no<count; no++){
         if(u[no].pw == -1) continue;
-        if(0 != strcmp(u[no].id, temp_id)){
-            printf("없는 계정입니다.\n");
-            return -1;
-        }
+        if(0 == strcmp(u[no].id, temp_id)) break;
+        printf("없는 계정입니다.\n");
+        return -1;
     }
     no--;
     printf("비밀번호를 입력하세요: ");
     getchar();
     scanf("%d", &temp_pw);
     if(u[no].pw != temp_pw){
-        printf("%d\n", u[no].pw);
-        printf("%d\n", temp_pw);
         printf("잘못된 비밀번호입니다.\n");
         return -1;
     }
@@ -105,7 +117,7 @@ void listuser(User *u, int count){
 }
 
 //유저 데이터 선택 함수
-int select_User_DataNo(User *u, int count){
+int select_User_DataNo(User *u, int count){ // 작성자로 검색할때 사용해야지
     int no;
  	listuser(u, count);
  	printf("번호는? (취소:0)? ");
