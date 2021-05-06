@@ -60,7 +60,7 @@ int main(void){
 			saveboard(postlist, post_index);
 		}
 		else if(menu == 9){ // 로그안
-			loginflag = -1; // (임시) 기존 로그인 로그이웃
+			if(loginflag != -1) loginflag = logout(); // 기존 로그인 로그이웃
 			loginflag = login(userlist, user_index);
 		}
 		else if(menu == 10){ // 로그아웃
@@ -68,7 +68,7 @@ int main(void){
 				printf("로그인이 필요합니다\n");
 				continue;
 			}
-			loginflag = -1;
+			loginflag = logout();
 		}
 		else if(menu == 11){ // 계정 생성
 			user_count += addUser(&userlist[user_index++]);

@@ -84,7 +84,6 @@ void saveboard(Post *list, int n){
 int login(User *u, int count){
     char temp_id[20];
     int temp_pw;
-    ///////////////////////////////////////로그아웃??
     printf("아이디를 입력하세요: ");
     getchar();
     scanf("%[^\n]s", temp_id);
@@ -107,7 +106,10 @@ int login(User *u, int count){
     return -1;
 }
 // 10. 로그아웃 - 로그인 여부 0
-int logout();
+int logout(){
+    printf("로그아웃 되었습니다.\n");
+    return -1;
+}
 // 12. 계정 목록 출력
 void listuser(User *u, int count){
     printf("\n========게시판 사용자 목록========\n");
