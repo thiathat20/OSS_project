@@ -23,6 +23,10 @@ int main(void){
 	
 	int post_count = 0; // file open/load
 	int user_count = 0; // 로드 구한 하면 계정 갯수 넣기
+	
+	post_count = loadboard(postlist);
+	user_count = loaduser(userlist);
+
 	int post_index = post_count;
 	int user_index = user_count;
 

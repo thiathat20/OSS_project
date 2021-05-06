@@ -23,6 +23,8 @@ void sortpost(Post *p);
 // 10. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)
 void saveboard(Post *p, int count);
 void saveuser(User *u, int count);
+int loadboard(Post *p);
+int loaduser(User *u);
 // 11. 로그인 (입력: 계정 구조체 배열 포인터, 출력:)
 int login(User *u, int count);
 // 12. 로그아웃 - 로그인 여부 0

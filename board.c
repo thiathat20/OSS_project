@@ -89,6 +89,42 @@ void saveuser(User *list, int n){
 	}
 	fclose(pfile);
 }
+int loadboard(Post *list){ // 저장된 리스트파일을 불러오는 함수
+	FILE* pfile = fopen("postboard.txt", "rt");
+	if(pfile == NULL){
+		printf("게시판 파일이 없습니다\n");
+		return 0;
+	}
+	printf("*** 로딩중... *** \n");
+	int i=0;
+	for(; i<100; i++){
+		fscanf(pfile, " %[^\n]s", list[i].title);
+        if(feof(pfile)) break;
+        fscanf(pfile, " %[^\n]s", list[i].user);
+        fscanf(pfile, " %[^\n]s", list[i].post);
+        fscanf(pfile, " %d", &list[i].view);
+        fscanf(pfile, " %d", &list[i].like);
+        fscanf(pfile, " %d", &list[i].index);
+	}
+	printf("*** 로딩 성공 ***\n");
+	fclose(pfile);
+	return i;
+}
+int loaduser(User *list){ // 저장된 리스트파일을 불러오는 함수
+	FILE* pfile = fopen("user.txt", "rt");
+	if(pfile == NULL){
+		printf("등록된 계정이 없습니다\n");
+		return 0;
+	}
+	int i=0;
+	for(; i<100; i++){
+		fscanf(pfile, " %s", list[i].id);
+        if(feof(pfile)) break;
+        fscanf(pfile, " %d", &list[i].pw);
+	}
+	fclose(pfile);
+	return i;
+}
 
 // 9. 로그인 (입력: 계정 구조체 배열 포인터, 출력:)
 int login(User *u, int count){
