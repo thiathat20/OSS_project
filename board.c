@@ -55,7 +55,7 @@ int posting(Post *p, User u){
 // 6. 게시글 키워드로 삭제 (입력: 게시판 구조체 배열 포인터,  계정 구조체, 출력:)
 int deletekeyword(Post *p){
     char search[100];
-    
+    return 1; // 임시 리턴(warring제거용) -- 필요에 따라 수정 할것
 }
 // 7. 게시글 수정 (입력: 게시판 구조체 배열 포인터, 출력:)
     // crud.h update
