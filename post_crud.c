@@ -31,7 +31,7 @@ int selectMenu(){ // 원하는 기능을 선택하는 함수
     return menu;
 }
 
-// 글 추가하는 함수
+// 글 추가하는 함수 이미 board.c 에서 구현 되어 있기 때문에 사용해야 하는 건지 모르겠음.
 int addpost(Post *p, char *user_account){ // 작성중인 유저 정보가 필요합니다.
     printf("게시글 제목을 적어주세요. : ");
     scanf("%s", p->title);
@@ -88,6 +88,9 @@ void readPostList(Post *p, int index){
 void readOnePost(Post p){
     printf("제목 : %s \n 작성자 : %s \n내용 : %s \n\n  조회수 : %d \n 좋아요수 : %d\n", p.title, p.user, p.post, p.view, p.like);
 }
+
+
+
 
 // 하나의 글을 출력하는 함수
 void readOneContent(Post p){
