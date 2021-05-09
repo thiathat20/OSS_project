@@ -59,14 +59,14 @@ void searchpost(Post *p, int post_index){
     char search[100];
     int keyword = 0;
     int num = 0;
-    while(1){
+    while(0){
         printf("제목[1], 작성자[2], 내용[3] 검색할 키워드를 선택해주세요 : ");
         scanf("%d", &keyword);
         if (keyword == 1)
         {
             //제목으로 검색
             printf("\n 검색할 게시글의 제목을 입력해주세요 : ");
-            scanf("%[^\n]s", search);
+            scanf("%s", search);
             printf("\n===============================================\n");
             printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
             printf("-------------------------------------------------\n");
@@ -87,7 +87,7 @@ void searchpost(Post *p, int post_index){
         {
             //제목으로 검색
             printf("\n 검색할 게시글의 작성자를 입력해주세요 : ");
-            scanf("%[^\n]s", search);
+            scanf("%s", search);
             printf("\n===============================================\n");
             printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
             printf("-------------------------------------------------\n");
@@ -107,7 +107,7 @@ void searchpost(Post *p, int post_index){
         else if (keyword == 3)
         {
             printf("\n 검색할 게시글의 내용을 입력해주세요 : ");
-            scanf("%[^\n]s", search);
+            scanf("%s", search);
             printf("\n===============================================\n");
             printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
             printf("-------------------------------------------------\n");

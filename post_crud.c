@@ -57,7 +57,7 @@ int addpost(Post *p, char *user_account){ // 작성중인 유저 정보가 필�
 
 // 하나의 글을 출력하는 함수
 void readOneContent(Post p){
-    printf("제목 : %s \n 작성자 : %s \n내용 : %s \n\n  조회수 : %d \n 좋아요수 : %d\n내용 : %s\n", p.title, p.user, p.post, p.view, p.like, p.post);
+    printf("제목 : %s \n작성자 : %s\n내용 : %s\n\n조회수 : %d\n좋아요수 : %d\n내용 : %s\n", p.title, p.user, p.post, p.view, p.like, p.post);
 }
 
 // 글을 수정하는 함수 (내용은 모두 지워지고 새로 작성하게 된다.)
