@@ -64,7 +64,6 @@ int main(void){
 			}
    			if( no > 0){
 				int deleteok ;
-				printf("선택한 글의 내용입니다\n");
 				printf("정말로 삭제하시겠습니까?(삭제:1)");
 				scanf("%d", &deleteok);
 				if(deleteok == 1){
