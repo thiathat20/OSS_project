@@ -52,7 +52,7 @@ void readPostList(Post *p, int count){
 
 
 void readOnePost(Post p){ // 게시글 리스트 번호 출력
-    printf("|  제목 : %s  |  작성자 : %s  |  조회수 : %d  |  좋아요수 : %d  |\n", p.title, p.user, p.view, p.like);// 게시글의 제목 작성자 조회수 추천수 만 표시
+    printf("|  제목 : %s  |  작성자 : %s  |  조회수 : %d  |  좋아요수 : %d  |  등록번호 : %d\n", p.title, p.user, p.view, p.like, p.index);// 게시글의 제목 작성자 조회수 추천수 만 표시
 }
 
 // 4. 게시판 글쓰기 (입력: 이용중인 계정 구조체, 카운터(리턴), 게시판 리스트 포인터, 출력: 1 or 0)
