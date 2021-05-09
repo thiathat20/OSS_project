@@ -59,7 +59,7 @@ void searchpost(Post *p, int post_index){
     char search[100];
     int keyword = 0;
     int num = 0;
-    while(0){
+    while(1){
         printf("제목[1], 작성자[2], 내용[3] 검색할 키워드를 선택해주세요 : ");
         scanf("%d", &keyword);
         if (keyword == 1)
