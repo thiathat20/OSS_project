@@ -126,7 +126,7 @@ int main(void){
 			}
 			else{
 				// 뭔가 해야하는데 ㅋㅋ
-				sortpost(postlist, post_index)
+				sortpost(postlist, post_index);
 			}
 			
 		}

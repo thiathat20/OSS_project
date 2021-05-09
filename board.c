@@ -196,6 +196,7 @@ void sortpost(Post *p, int index){
         else{
             printf("정렬을 취소합니다.\n");
         }
+    }
 }
 
 
