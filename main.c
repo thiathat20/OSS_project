@@ -35,9 +35,9 @@ int main(void){
 
 	while(1){
 		if(sort == 1)
-			sortnew(postlist, post_index, 0);
+			sortingnew(postlist, post_index, 0);
 		else if(sort == 2)
-			sortnew(postlist, post_index, 1);
+			sortingnew(postlist, post_index, 1);
 		else if(sort == 3)
 			sortinglike(postlist, post_index, 0);
 		else if(sort == 4)
