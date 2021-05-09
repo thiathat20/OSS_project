@@ -47,10 +47,13 @@ int main(void){
 				continue;
 			}
 		if(menu == 1){ // 게시글 보기
+			selectprintpost(postlist, post_index);
 		}
 		else if(menu == 2){ // 게시글 목록 보기(제목만 보이도록)
+			printpostlist(postlist, post_index);
 		}
 		else if(menu == 3) { // 게시글 쓰기
+			addpost(&postlist[post_index++], userlist[loginflag].id);
 		}
 		else if(menu == 4){ // 게시글 삭제
 		}
@@ -79,7 +82,7 @@ int main(void){
 			user_count += addUser(&userlist[user_index++]);
 		}
 		else if(menu == 12){ // 계정 목록 확인
-			listuser(userlist, user_count);
+			listuser(userlist, user_index);
 		}
 		else if(menu == 13){ // 계정 비밀번호 수정
 			if(loginflag == -1){
@@ -102,7 +105,7 @@ int main(void){
 				printf("정말로 삭제하시겠습니까?(삭제:1)");
 				scanf("%d", &deleteok);
 				if(deleteok == 1){
-					deleteuser(&userlist[no-1]);
+					deleteuser(&userlist[no]);
 					user_count--;
 				}
 			}
