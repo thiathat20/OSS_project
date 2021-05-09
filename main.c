@@ -124,7 +124,7 @@ int main(void){
 				printf("err: 등록된 게시글이 없습니다.\n");
 				continue;
 			}
-			else
+			else{}
 				// 여기에 구현
 		}
 		else if(menu == 8){ // 게시판 저장
