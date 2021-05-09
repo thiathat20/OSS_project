@@ -40,14 +40,13 @@ int addpost(Post *p, char *user_account, int post_index){ // 작성중인 유저
     getchar();
     scanf("%[^\n]s", p->post);
     strcpy(p->user, user_account); // user_account작성자중인 아이디를 알아야함. (작성자)
-
+    p->index = post_index;
     int num; //내용 확인할지 물어보기 위해 만듬
     printf("게시글 작성이 완료되었습니다.\n");
-    p->index = post_index;
     printf("내용을 확인하시려면 1번 아니면 0번을 입력해주세요 : ");
     scanf("%d", &num);
     if(num==1){
-        printf("제목 : %s \n작성자 : %s\n조회수 : %d \n좋아요수 : %d\n내용 : %s\n", p->title, p->user, p->view, p->like, p->post);
+        printf("제목 : %s \n등록번호 : %d\n작성자 : %s\n조회수 : %d \n좋아요수 : %d\n내용 : %s\n", p->title, p->index, p->user, p->view, p->like, p->post);
     }
     else{
         return 1;
