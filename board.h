@@ -21,7 +21,9 @@ int deletekeyword(Post *p);
 // 8. 게시글 검색 (제목, 작성자, 내용 키워드)(입력: 게시판 구조체 배열, 출력:)
 void searchpost(Post *p, int post_index);
 // 9. 생성일 , 추천수, 조회수 (높은순, 낮은순) 기준으로 보기 (입력: 게시판 구조체 배열, 출력:)
-void sorting(Post *p, int index);
+void sortingnew(Post *p, int index, int updown);
+void sortinglike(Post *p, int index, int updown);
+void sortingview(Post *p, int index, int updown);
 void sortpost(Post *p, int index);
 
 // 10. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)

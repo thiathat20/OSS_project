@@ -158,43 +158,158 @@ void searchpost(Post *p, int post_index){
 // 9. 생성일 , 추천수, 조회수 (높은순, 낮은순) 기준으로 보기 (입력: 게시판 구조체 배열, 출력:)
 
 
-void sorting(Post *p, int index){
+void sortingnew(Post *p, int index, int updown){
     int i, j;
     Post temp;
-    for(i = 1; i < index; i++){
-        for(j = 1; j < index - i ; j++){
-            if(p[j].index > p[j+1].index){
-                temp = p[j];
-                p[j] = p[j+1];
-                p[j+1] = temp;
+    if(updown == 0){ // 0이면 높은순 
+        for(i = 1; i < index; i++){
+            for(j = 1; j < index - i ; j++){
+                if(p[j].index < p[j+1].index){
+                    temp = p[j];
+                    p[j] = p[j+1];
+                    p[j+1] = temp;
+                }
+            }
+        }
+    }
+    if(updown == 0){ // 1이면 낮은순 
+        for(i = 1; i < index; i++){
+            for(j = 1; j < index - i ; j++){
+                if(p[j].index > p[j+1].index){
+                    temp = p[j];
+                    p[j] = p[j+1];
+                    p[j+1] = temp;
+                }
             }
         }
     }
 }
 
+void sortinglike(Post *p, int index, int updown){
+    int i, j;
+    Post temp;
+    if(updown == 0){ // 0이면 높은 순
+        for(i = 1; i < index; i++){
+            for(j = 1; j < index - i ; j++){
+                if(p[j].like < p[j+1].like){
+                    temp = p[j];
+                    p[j] = p[j+1];
+                    p[j+1] = temp;
+                }
+            }
+        }
+    }
+    if(updown == 1){ // 1이면 낮은 순
+        for(i = 1; i < index; i++){
+            for(j = 1; j < index - i ; j++){
+                if(p[j].like > p[j+1].like){
+                    temp = p[j];
+                    p[j] = p[j+1];
+                    p[j+1] = temp;
+                }
+            }
+        }
+    }
+
+}
+void sortingview(Post *p, int index, int updown){
+    int i, j;
+    Post temp;
+    if(updown == 0){ // 0이면 높은 순
+        for(i = 1; i < index; i++){
+            for(j = 1; j < index - i ; j++){
+                if(p[j].view < p[j+1].view){
+                    temp = p[j];
+                    p[j] = p[j+1];
+                    p[j+1] = temp;
+                }
+            }
+        }
+    }
+    if(updown == 1){ // 1이면  순
+        for(i = 1; i < index; i++){
+            for(j = 1; j < index - i ; j++){
+                if(p[j].view > p[j+1].view){
+                    temp = p[j];
+                    p[j] = p[j+1];
+                    p[j+1] = temp;
+                }
+            }
+        }
+    }
+}
+
+
 void sortpost(Post *p, int index){
     int select = 0;
-    int i; 
+    int i;
+    int updown;
     while(1){
         printf("게시글의 정렬 순서를 정합니다.\n");
         printf("생성일 기준(1), 좋아요 수 기준(2), 조회수 순(3), 취소(0)\n");
         printf("번호를 입력해주세요 : \n");
         scanf("%d", &select);
         if (select == 1){
-            printf("최근 생성된 게시글 순으로 정렬합니다.\n");
-            sorting(p, index);
-            break;
+            while(1){
+                printf("최신 순은 0번 오래된 순 1번\n");
+                scanf("%d", &updown);
+                if(updown == 1 || updown == 0){
+                    break;
+                }
+            }
+            if(updown == 0){
+                printf("최신 순으로 정렬합니다.\n");
+                sortingnew(p, index, updown);
+                break;
+            }
+            if(updown == 1){
+                printf("오래된 순으로 정렬합니다.\n");
+                sortingnew(p, index, updown);
+                break;
+            }
         }
         else if (select == 2)
         {
             printf("좋아요가 많은 순으로 게시글을 정렬합니다.\n");
-            break;
+            while(1){
+                printf("최신 순은 0번 오래된 순 1번\n");
+                scanf("%d", &updown);
+                if(updown == 1 || updown == 0){
+                    break;
+                }
+            }
+            if(updown == 0){
+                printf("최신 순으로 정렬합니다.\n");
+                sortinglike(p, index, updown);
+                break;
+            }
+            if(updown == 1){
+                printf("오래된 순으로 정렬합니다.\n");
+                sortinglike(p, index, updown);
+                break;
+            }
 
         }
         else if (select == 3)
         {
-            printf("좋아요가 많은 순으로 게시글을 정렬합니다.\n");
-            break;
+            printf("조회수가 많은 순으로 게시글을 정렬합니다.\n");
+            while(1){
+                printf("최신 순은 0번 오래된 순 1번\n");
+                scanf("%d", &updown);
+                if(updown == 1 || updown == 0){
+                    break;
+                }
+            }
+            if(updown == 0){
+                printf("최신 순으로 정렬합니다.\n");
+                sortingview(p, index, updown);
+                break;
+            }
+            if(updown == 1){
+                printf("오래된 순으로 정렬합니다.\n");
+                sortingview(p, index, updown);
+                break;
+            }
         }
         else{
             printf("정렬을 취소합니다.\n");
