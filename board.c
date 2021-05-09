@@ -11,7 +11,7 @@
 // 2. 게시글 선택후 내용 출력(입력: 게시판 구조체 배열, 출력:) // 리스트 출력 없이 글 번호만 입력
 void selectprintpost(Post *p, int count){
     int num;
-    num = select_Post_DataNo(p, count);
+    num = select_Post_DataNo(p, count) - 1;
     printf("제목 : %s \n 작성자 : %s\n  조회수 : %d \n 좋아요수 : %d\n내용 : %s\n", p[num].title, p[num].user, p[num].view, p[num].like, p[num].post);
 }
 
@@ -30,26 +30,7 @@ void readOnePost(Post p){ // 게시글 리스트 번호 출력
 }
 
 // 4. 게시판 글쓰기 (입력: 이용중인 계정 구조체, 카운터(리턴), 게시판 리스트 포인터, 출력: 1 or 0)
-int posting(Post *p, User u){
-    int num; //내용 확인할지 물어보기 위해 만듬
-    strcpy(p->user, u.id); // 아이디를 할당시켜 줌.
-    printf("게시글 제목을 적어주세요. : ");
-    scanf("%s", p->title);
-    printf("게시글 내용을 적어주세요. (500자까지 입력 가능합니다.)\n");
-    scanf("%s", p->title);
-    printf("게시글 작성이 완료되었습니다.\n");
-    printf("내용을 확인하시려면 1번 아니면 0번을 입력해주세요 : ");
-    scanf("%d", &num);
-    if(num==1){
-        printf("제목 : %s \n 작성자 : %s\n  조회수 : %d \n 좋아요수 : %d\n내용 : %s\n", p->title, p->user, p->view, p->like, p->post);
-    }
-    else{
-        return 1;
-    }
-    return 1;
-}
-
-
+    //post_crud.c
 // 5. 게시글 삭제 (입력: 게시판 구조체 배열 포인터, 계정 구조체, 출력: 1 or 0)
     // crud.h - deletepost
 // 6. 게시글 키워드로 삭제 (입력: 게시판 구조체 배열 포인터,  계정 구조체, 출력:)
@@ -83,9 +64,8 @@ void saveuser(User *list, int n){
     FILE* pfile = fopen("user.txt", "wt");
 	for(int i=0; i<n; i++){
 		if(list[i].pw == -1) continue;
-		fprintf(pfile, "%s", list[i].id);
-		fprintf(pfile, "%d ", list[i].pw);
-		fprintf(pfile, "\n");
+		fprintf(pfile, "%s\n", list[i].id);
+		fprintf(pfile, "%d\n", list[i].pw);
 	}
 	fclose(pfile);
 }
@@ -137,13 +117,13 @@ int login(User *u, int count){
     for(no = 0; no<count; no++){
         if(u[no].pw == -1) continue;
         if(0 == strcmp(u[no].id, temp_id)){ // 아이디가 일치하면
-            no--;
+            // no--;
             printf("비밀번호를 입력하세요: ");
             getchar();
             scanf("%d", &temp_pw);
-            for(no = 0; no<count; no++){
-                if(u[no].pw == temp_pw) return no; // 비밀번호가 일치하면
-            }
+            // for(no = 0; no<count; no++){
+            if(u[no].pw == temp_pw) return no; // 비밀번호가 일치하면
+            // }
             printf("잘못된 비밀번호입니다.\n");
             return -1;
         }
@@ -183,3 +163,4 @@ int select_Post_DataNo(Post *p, int count){
  	scanf("%d", &no);
     return no;
 }
+
