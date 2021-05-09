@@ -20,7 +20,7 @@ void readPostList(Post *p, int count){
     printf("-------------------------------------------------------------------------------------\n");
     printf("-------------------------------------------------------------------------------------\n");
     for(int i = 0; i < count; i++){
-        if(p[i].view == -1) continue;
+        if(p[i+1].view == -1) continue;
             printf("%2d  ",i+1);
         readOnePost(p[i+1]);
     }
@@ -71,8 +71,8 @@ void searchpost(Post *p, int post_index){
             printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
             printf("-------------------------------------------------\n");
             for(int i = 0; i < post_index; i ++){
-                if(p[i].view == -1) continue;
-                if(strstr(p[i].title, search)){
+                if(p[i+1].view == -1) continue;
+                if(strstr(p[i+1].title, search)){
                     printf("%2d ",i+1);
                     readOneContent(p[i+1]);
                     num ++;
@@ -92,8 +92,8 @@ void searchpost(Post *p, int post_index){
             printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
             printf("-------------------------------------------------\n");
             for(int i = 0; i < post_index; i ++){
-                if(p[i].view == -1) continue;
-                if(strstr(p[i].user, search)){
+                if(p[i+1].view == -1) continue;
+                if(strstr(p[i+1].user, search)){
                     printf("%2d ",i+1);
                     readOneContent(p[i+1]);
                     num ++;
@@ -112,8 +112,8 @@ void searchpost(Post *p, int post_index){
             printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
             printf("-------------------------------------------------\n");
             for(int i = 0; i < post_index; i ++){
-                if(p[i].view == -1) continue;
-                if(strstr(p[i].post, search)){
+                if(p[i+1].view == -1) continue;
+                if(strstr(p[i+1].post, search)){
                     printf("%2d ",i+1);
                     readOneContent(p[i+1]);
                     num ++;
