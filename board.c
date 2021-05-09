@@ -67,9 +67,8 @@ void searchpost(Post *p, int post_index){
             //제목으로 검색
             printf("\n 검색할 게시글의 제목을 입력해주세요 : ");
             scanf("%s", search);
-            printf("\n===============================================\n");
-            printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
-            printf("-------------------------------------------------\n");
+            printf("-------------------------------------------------------------------------------------\n");
+            printf("-------------------------------------------------------------------------------------\n");
             for(int i = 0; i < post_index; i ++){
                 if(p[i+1].view == -1) continue;
                 if(strstr(p[i+1].title, search)){
@@ -88,9 +87,8 @@ void searchpost(Post *p, int post_index){
             //제목으로 검색
             printf("\n 검색할 게시글의 작성자를 입력해주세요 : ");
             scanf("%s", search);
-            printf("\n===============================================\n");
-            printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
-            printf("-------------------------------------------------\n");
+            printf("-------------------------------------------------------------------------------------\n");
+            printf("-------------------------------------------------------------------------------------\n");
             for(int i = 0; i < post_index; i ++){
                 if(p[i+1].view == -1) continue;
                 if(strstr(p[i+1].user, search)){
@@ -108,9 +106,8 @@ void searchpost(Post *p, int post_index){
         {
             printf("\n 검색할 게시글의 내용을 입력해주세요 : ");
             scanf("%s", search);
-            printf("\n===============================================\n");
-            printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
-            printf("-------------------------------------------------\n");
+            printf("-------------------------------------------------------------------------------------\n");
+            printf("-------------------------------------------------------------------------------------\n");
             for(int i = 0; i < post_index; i ++){
                 if(p[i+1].view == -1) continue;
                 if(strstr(p[i+1].post, search)){
@@ -143,12 +140,12 @@ void saveboard(Post *list, int n){
     FILE* pfile = fopen("postboard.txt", "wt");
 	for(int i=0; i<n; i++){
 		if(list[i].view == -1) continue;
-		fprintf(pfile, "%s\n", list[i].title);
-        fprintf(pfile, "%s\n", list[i].user);
-        fprintf(pfile, "%s\n", list[i].post);
-		fprintf(pfile, "%d ", list[i].view);
-		fprintf(pfile, "%d ", list[i].like);
-		fprintf(pfile, "%d ", list[i].index);
+		fprintf(pfile, "%s\n", list[i+1].title);
+        fprintf(pfile, "%s\n", list[i+1].user);
+        fprintf(pfile, "%s\n", list[i+1].post);
+		fprintf(pfile, "%d ", list[i+1].view);
+		fprintf(pfile, "%d ", list[i+1].like);
+		fprintf(pfile, "%d ", list[i+1].index);
 		fprintf(pfile, "\n");
 	}
 	fclose(pfile);
@@ -172,13 +169,13 @@ int loadboard(Post *list){ // 저장된 리스트파일을 불러오는 함수
 	printf("*** 로딩중... *** \n");
 	int i=0;
 	for(; i<100; i++){
-		fscanf(pfile, " %[^\n]s", list[i].title);
+		fscanf(pfile, " %[^\n]s", list[i+1].title);
         if(feof(pfile)) break;
-        fscanf(pfile, " %[^\n]s", list[i].user);
-        fscanf(pfile, " %[^\n]s", list[i].post);
-        fscanf(pfile, " %d", &list[i].view);
-        fscanf(pfile, " %d", &list[i].like);
-        fscanf(pfile, " %d", &list[i].index);
+        fscanf(pfile, " %[^\n]s", list[i+1].user);
+        fscanf(pfile, " %[^\n]s", list[i+1].post);
+        fscanf(pfile, " %d", &list[i+1].view);
+        fscanf(pfile, " %d", &list[i+1].like);
+        fscanf(pfile, " %d", &list[i+1].index);
 	}
 	printf("*** 로딩 성공 ***\n");
 	fclose(pfile);
