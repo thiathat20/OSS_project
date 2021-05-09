@@ -56,52 +56,86 @@ int main(void){
 				selectprintpost(postlist, post_index);
 		}
 		else if(menu == 2){ // 게시글 목록 보기(제목만 보이도록)
-			readPostList(postlist, post_index);
+			if(post_count == 0){
+				printf("err: 등록된 게시글이 없습니다.\n");
+				continue;
+			}
+			else
+				readPostList(postlist, post_index);
+			
 		}
 		else if(menu == 3) { // 게시글 쓰기
 			addpost(&postlist[post_index++], userlist[loginflag].id);
+			post_index++;
 		}
 		else if(menu == 4){ // 게시글 삭제
-			int no = select_Post_DataNo(postlist, post_index);
-			if(0 != strcmp(userlist[loginflag].id, postlist[no-1].user)){
-				printf("err: 글은 작성자만 지울수 있습니다.\n");
+			if(post_count == 0){
+				printf("err: 등록된 게시글이 없습니다.\n");
 				continue;
 			}
-   			if( no > 0){
-				int deleteok ;
-				printf("정말로 삭제하시겠습니까?(삭제:1)");
-				scanf("%d", &deleteok);
-				if(deleteok == 1){
-					deletepost(&postlist[no-1]);
-					user_count--;
+			else{
+				int no = select_Post_DataNo(postlist, post_index);
+				if(0 != strcmp(userlist[loginflag].id, postlist[no-1].user)){
+					printf("err: 글은 작성자만 지울수 있습니다.\n");
+					continue;
+				}
+				if( no > 0){
+					int deleteok ;
+					printf("정말로 삭제하시겠습니까?(삭제:1)");
+					scanf("%d", &deleteok);
+					if(deleteok == 1){
+						deletepost(&postlist[no-1]);
+						user_count--;
+					}
 				}
 			}
-			
 		}
 		else if(menu == 5){ // 게시글 수정
-			int no = select_Post_DataNo(postlist, post_index);
-			if(0 != strcmp(userlist[loginflag].id, postlist[no-1].user)){
-				printf("err: 글은 작성자만 수정할 수 있습니다.\n");
+			if(post_count == 0){
+				printf("err: 등록된 게시글이 없습니다.\n");
 				continue;
 			}
-   			if( no > 0){
-				int updateok ;
-				printf("기존 글을 지우고 새로 작성 합니다 정말로 수정하시겠습니까?(수정:1)");
-				scanf("%d", &updateok);
-				if(updateok == 1){
-					updatepost(&postlist[no-1]);
+			else{
+				int no = select_Post_DataNo(postlist, post_index);
+				if(0 != strcmp(userlist[loginflag].id, postlist[no-1].user)){
+					printf("err: 글은 작성자만 수정할 수 있습니다.\n");
+					continue;
+				}
+				if( no > 0){
+					int updateok ;
+					printf("기존 글을 지우고 새로 작성 합니다 정말로 수정하시겠습니까?(수정:1)");
+					scanf("%d", &updateok);
+					if(updateok == 1){
+						updatepost(&postlist[no-1]);
+					}
 				}
 			}
 		}
 		else if(menu == 6){ // 게시글 검색 -- 키워드, 작성자, ...
-			searchpost(postlist, post_index);
+			if(post_count == 0){
+				printf("err: 등록된 게시글이 없습니다.\n");
+				continue;
+			}
+			else
+				searchpost(postlist, post_index);
 		}
 		else if(menu == 7){ // 게시글 목록 정렬해서 보기
-
+			if(post_count == 0){
+				printf("err: 등록된 게시글이 없습니다.\n");
+				continue;
+			}
+			else
+				// 여기에 구현
 		}
 		else if(menu == 8){ // 게시판 저장
-			saveboard(postlist, post_index);
-			saveuser(userlist, user_index);
+			if(post_count == 0){
+				printf("err: 등록된 게시글이 없습니다.\n");
+				continue;
+			}
+			else{
+				saveboard(postlist, post_index);
+				saveuser(userlist, user_index);
+			}
 		}
 		else if(menu == 9){ // 로그안
 			if(loginflag != -1) loginflag = logout(); // 기존 로그인 로그이웃
