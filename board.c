@@ -189,7 +189,7 @@ void sortinglike(Post *p, int index, int updown){
     int i, j;
     Post temp;
     if(updown == 0){ // 0이면 높은 순
-        for(i = 1; i < index; i++){
+        for(i = 0; i < index; i++){
             for(j = 1; j < index - i ; j++){
                 if(p[j].like < p[j+1].like){
                     temp = p[j];
@@ -200,7 +200,7 @@ void sortinglike(Post *p, int index, int updown){
         }
     }
     if(updown == 1){ // 1이면 낮은 순
-        for(i = 1; i < index; i++){
+        for(i = 0; i < index; i++){
             for(j = 1; j < index - i ; j++){
                 if(p[j].like > p[j+1].like){
                     temp = p[j];
@@ -216,7 +216,7 @@ void sortingview(Post *p, int index, int updown){
     int i, j;
     Post temp;
     if(updown == 0){ // 0이면 높은 순
-        for(i = 1; i < index; i++){
+        for(i = 0; i < index; i++){
             for(j = 1; j < index - i ; j++){
                 if(p[j].view < p[j+1].view){
                     temp = p[j];
@@ -227,7 +227,7 @@ void sortingview(Post *p, int index, int updown){
         }
     }
     if(updown == 1){ // 1이면  순
-        for(i = 1; i < index; i++){
+        for(i = 0; i < index; i++){
             for(j = 1; j < index - i ; j++){
                 if(p[j].view > p[j+1].view){
                     temp = p[j];
