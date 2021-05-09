@@ -48,7 +48,12 @@ int main(void){
 				continue;
 			}
 		if(menu == 1){ // 게시글 보기
-			selectprintpost(postlist, post_index);
+			if(post_count == 0){
+				printf("err: 등록된 게시글이 없습니다.\n");
+				continue;
+			}
+			else
+				selectprintpost(postlist, post_index);
 		}
 		else if(menu == 2){ // 게시글 목록 보기(제목만 보이도록)
 			readPostList(postlist, post_index);
