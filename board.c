@@ -182,19 +182,22 @@ void sortpost(Post *p, int index){
         if (select == 1){
             printf("최근 생성된 게시글 순으로 정렬합니다.\n");
             qsort(p, index , sizeof(p) , compare);
+            break;
         }
         else if (select == 2)
         {
             printf("좋아요가 많은 순으로 게시글을 정렬합니다.\n");
+            break;
 
         }
         else if (select == 3)
         {
             printf("좋아요가 많은 순으로 게시글을 정렬합니다.\n");
-
+            break;
         }
         else{
             printf("정렬을 취소합니다.\n");
+            break;
         }
     }
 }
