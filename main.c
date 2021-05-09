@@ -31,7 +31,7 @@ int main(void){
 	int post_index = post_count;
 	int user_index = user_count;
 
-	int sort = 1; // 정렬 순서를 정합니다.
+	int sort = 2; // 정렬 순서를 정합니다.
 
 	while(1){
 		if(sort == 1)
