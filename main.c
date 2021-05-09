@@ -51,7 +51,7 @@ int main(void){
 			selectprintpost(postlist, post_index);
 		}
 		else if(menu == 2){ // 게시글 목록 보기(제목만 보이도록)
-			printpostlist(postlist, post_index);
+			readPostList(postlist, post_index);
 		}
 		else if(menu == 3) { // 게시글 쓰기
 			addpost(&postlist[post_index++], userlist[loginflag].id);
