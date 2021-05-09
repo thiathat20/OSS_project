@@ -1,6 +1,7 @@
 //messageboard.c 메인
 
 #include <stdio.h>
+#include <string.h>
 #include "board.h"
 #define HEADER
 
@@ -56,9 +57,36 @@ int main(void){
 			addpost(&postlist[post_index++], userlist[loginflag].id);
 		}
 		else if(menu == 4){ // 게시글 삭제
-			// deletepost
+			int no = select_Post_DataNo(postlist, post_index);
+			if(0 != strcmp(userlist[loginflag].id, postlist[no-1].user)){
+				printf("err: 글은 작성자만 지울수 있습니다.\n");
+				continue;
+			}
+   			if( no > 0){
+				int deleteok ;
+				printf("정말로 삭제하시겠습니까?(삭제:1)");
+				scanf("%d", &deleteok);
+				if(deleteok == 1){
+					deletepost(&postlist[no-1]);
+					user_count--;
+				}
+			}
+			
 		}
 		else if(menu == 5){ // 게시글 수정
+			int no = select_Post_DataNo(postlist, post_index);
+			if(0 != strcmp(userlist[loginflag].id, postlist[no-1].user)){
+				printf("err: 글은 작성자만 수정할 수 있습니다.\n");
+				continue;
+			}
+   			if( no > 0){
+				int updateok ;
+				printf("기존 글을 지우고 새로 작성 합니다 정말로 수정하시겠습니까?(수정:1)");
+				scanf("%d", &updateok);
+				if(updateok == 1){
+					updatepost(&postlist[no-1]);
+				}
+			}
 		}
 		else if(menu == 6){ // 게시글 검색 -- 키워드, 작성자, ...
 		}
@@ -89,7 +117,7 @@ int main(void){
 		}
 		else if(menu == 14){
 			int no = loginflag;
-			if(loginflag != -1){ // 로그인 여부, 로그인 이용자 번호 따로 분리시키기
+			// if(loginflag != -1){ // 로그인 여부, 로그인 이용자 번호 따로 분리시키기
 				int deleteok ;
 				printf("정말로 삭제하시겠습니까?(삭제:1)");
 				scanf("%d", &deleteok);
@@ -97,7 +125,7 @@ int main(void){
 					deleteuser(&userlist[no]);
 					user_count--;
 				}
-			}
+			// }
 			loginflag = -1; // 삭제와 동시에 로그아웃
 		}
 	}
