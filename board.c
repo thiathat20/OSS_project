@@ -170,7 +170,6 @@ void sorting(Post *p, int index){
             }
         }
     }
-
 }
 
 void sortpost(Post *p, int index){

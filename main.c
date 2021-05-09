@@ -66,7 +66,7 @@ int main(void){
 		}
 		else if(menu == 3) { // 게시글 쓰기
 			post_index++;
-			addpost(&postlist[post_index], userlist[loginflag].id);
+			addpost(&postlist[post_index], userlist[loginflag].id, post_index);
 		}
 		else if(menu == 4){ // 게시글 삭제
 			if(post_index == 0){
