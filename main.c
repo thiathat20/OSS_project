@@ -85,7 +85,6 @@ int main(void){
 					scanf("%d", &deleteok);
 					if(deleteok == 1){
 						deletepost(&postlist[no-1]);
-						user_count--;
 					}
 				}
 			}
