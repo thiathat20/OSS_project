@@ -74,6 +74,7 @@ int main(void){
 				continue;
 			}
 			else{
+				printf("삭제할 게시글의 번호를 입력해주세요\n");
 				int no = select_Post_DataNo(postlist, post_index);
 				if(0 != strcmp(userlist[loginflag].id, postlist[no].user)){
 					printf("err: 글은 작성자만 지울수 있습니다.\n");
@@ -81,7 +82,7 @@ int main(void){
 				}
 				if( no > 0){
 					int deleteok ;
-					printf("정말로 삭제하시겠습니까?(삭제:1)");
+					printf("정말로 삭제하시겠습니까?(삭제:1 / 취소:0)");
 					scanf("%d", &deleteok);
 					if(deleteok == 1){
 						deletepost(&postlist[no]);
@@ -123,8 +124,11 @@ int main(void){
 				printf("err: 등록된 게시글이 없습니다.\n");
 				continue;
 			}
-			else{}
-				// 여기에 구현
+			else{
+				// 뭔가 해야하는데 ㅋㅋ
+				sortpost(postlist, post_index)
+			}
+			
 		}
 		else if(menu == 8){ // 게시판 저장
 			if(post_index == 0){

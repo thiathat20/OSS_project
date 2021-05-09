@@ -1,6 +1,7 @@
 #ifndef HEARDER
     #define HEADER
     #include <stdio.h>
+    #include <stdlib.h>
     #include "board.h"
 #endif
 
@@ -11,8 +12,31 @@
 // 2. 게시글 선택후 내용 출력(입력: 게시판 구조체 배열, 출력:) // 리스트 출력 없이 글 번호만 입력
 void selectprintpost(Post *p, int count){
     int num;
+    int yesorno;
     num = select_Post_DataNo(p, count);
-    printf("제목 : %s \n 작성자 : %s\n  조회수 : %d \n 좋아요수 : %d\n내용 : %s\n", p[num].title, p[num].user, p[num].view, p[num].like, p[num].post);
+    p[num].view ++;
+    printf("|  제목 : %s  |  작성자 : %s  |  조회수 : %d  |  좋아요수 : %d  |\n내용 : %s\n", p[num].title, p[num].user, p[num].view, p[num].like, p[num].post);
+    while(1){
+        printf("이 글을 좋아요합니다.(yes = 1 / no = 0)");
+        scanf("%d", yesorno);
+        if(yesorno == 0){
+            printf("이 글을 좋아요하지 않았습니다.\n");
+            printf("현재 좋아요 수는 %d개입니다.\n", p[num].like);
+            break;
+        }
+        else if (yesorno == 1)
+        {
+            p[num].like ++;
+            printf("이 글을 좋아요 수가 증가하였습니다.\n");
+            printf("현재 좋아요 수는 %d개입니다.\n", p[num].like);
+            break;
+        }
+        else{
+            printf("숫자를 잘못 입력하셨습니다. 다시 입력해주세요.\n");
+        }
+    }
+    
+    
 }
 
 // 3. 게시판 제목 리스트 출력 (입력: 게시판 구조체 배열, 출력:X)
@@ -132,7 +156,50 @@ void searchpost(Post *p, int post_index){
 
 
 // 9. 생성일 , 추천수, 조회수 (높은순, 낮은순) 기준으로 보기 (입력: 게시판 구조체 배열, 출력:)
-void sortpost(Post *p);
+
+int compare(const void *a, const void *b)    // 오름차순 비교 함수 구현
+{
+    int num1 = *(int *)a;    // void 포인터를 int 포인터로 변환한 뒤 역참조하여 값을 가져옴
+    int num2 = *(int *)b;    // void 포인터를 int 포인터로 변환한 뒤 역참조하여 값을 가져옴
+
+    if (num1 < num2)    // a가 b보다 작을 때는
+        return -1;      // -1 반환
+    
+    if (num1 > num2)    // a가 b보다 클 때는
+        return 1;       // 1 반환
+    
+    return 0;    // a와 b가 같을 때는 0 반환
+}
+
+void sortpost(Post *p, int index){
+    int select = 0;
+    int i; 
+    while(1){
+        printf("게시글의 정렬 순서를 정합니다.\n");
+        printf("생성일 기준(1), 좋아요 수 기준(2), 조회수 순(3), 취소(0)\n");
+        printf("번호를 입력해주세요 : \n");
+        scanf("%d", &select);
+        if (select == 1){
+            printf("최근 생성된 게시글 순으로 정렬합니다.\n");
+            qsort(p, index , sizeof(p) , compare);
+        }
+        else if (select == 2)
+        {
+            printf("좋아요가 많은 순으로 게시글을 정렬합니다.\n");
+
+        }
+        else if (select == 3)
+        {
+            printf("좋아요가 많은 순으로 게시글을 정렬합니다.\n");
+
+        }
+        else{
+            printf("정렬을 취소합니다.\n");
+        }
+}
+
+
+
 
 
 // 10. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)
