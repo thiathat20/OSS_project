@@ -11,7 +11,7 @@
 // 2. 게시글 선택후 내용 출력(입력: 게시판 구조체 배열, 출력:) // 리스트 출력 없이 글 번호만 입력
 void selectprintpost(Post *p, int count){
     int num;
-    num = select_Post_DataNo(p, count) - 1;
+    num = select_Post_DataNo(p, count);
     printf("제목 : %s \n 작성자 : %s\n  조회수 : %d \n 좋아요수 : %d\n내용 : %s\n", p[num].title, p[num].user, p[num].view, p[num].like, p[num].post);
 }
 
