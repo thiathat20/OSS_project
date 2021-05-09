@@ -162,7 +162,7 @@ void sorting(Post *p, int index){
     int i, j;
     Post temp;
     for(i = 1; i < index; i++){
-        for(j = 0; j < index -i; j++){
+        for(j = 1; j < index - i ; j++){
             if(p[j].index > p[j+1].index){
                 temp = p[j];
                 p[j] = p[j+1];
