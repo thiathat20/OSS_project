@@ -31,19 +31,111 @@ void readOnePost(Post p){ // 게시글 리스트 번호 출력
 
 // 4. 게시판 글쓰기 (입력: 이용중인 계정 구조체, 카운터(리턴), 게시판 리스트 포인터, 출력: 1 or 0)
     //post_crud.c
+
+
 // 5. 게시글 삭제 (입력: 게시판 구조체 배열 포인터, 계정 구조체, 출력: 1 or 0)
     // crud.h - deletepost
+
+
 // 6. 게시글 키워드로 삭제 (입력: 게시판 구조체 배열 포인터,  계정 구조체, 출력:)
 int deletekeyword(Post *p){
     char search[100];
-    return 1; // 임시 리턴(warring제거용) -- 필요에 따라 수정 할것
+
+
+
+
+
+    return 1; // 임시 리턴(warring제거용) -- 필요에 따라 수정 할 것
+
 }
 // 7. 게시글 수정 (입력: 게시판 구조체 배열 포인터, 출력:)
     // crud.h update
+
+
 // 8. 게시글 검색 (제목, 작성자, 내용 키워드)(입력: 게시판 구조체 배열, 출력:)
-void serchpost(Post *p);
+void searchpost(Post *p, int post_index){
+    char search[100];
+    int keyword = 0;
+    int num = 0;
+    while(1){
+        printf("제목[1], 작성자[2], 내용[3] 검색할 키워드를 선택해주세요 : ");
+        scanf("%d", &keyword);
+        if (keyword == 0)
+        {
+            //제목으로 검색
+            printf("\n 검색할 게시글의 제목을 입력해주세요 : ");
+            scanf("%s", search);
+            printf("\n===============================================\n");
+            printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
+            printf("-------------------------------------------------\n");
+            for(int i = 0; i < post_index; i ++){
+                if(p[i].view == -1) continue;
+                if(strstr(p[i].title, search)){
+                    printf("%2d ",i+1);
+                    readOneContent(p[i]);
+                    num ++;
+                }
+            }
+            if(num == 0){
+                printf("\n=> 검색된 데이터가 없습니다! \n");
+            }
+            break;
+        }
+        else if (keyword == 1)
+        {
+            //제목으로 검색
+            printf("\n 검색할 게시글의 작성자를 입력해주세요 : ");
+            scanf("%s", search);
+            printf("\n===============================================\n");
+            printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
+            printf("-------------------------------------------------\n");
+            for(int i = 0; i < post_index; i ++){
+                if(p[i].view == -1) continue;
+                if(strstr(p[i].user, search)){
+                    printf("%2d ",i+1);
+                    readOneContent(p[i]);
+                    num ++;
+                }
+            }
+            if(num == 0){
+                printf("\n=> 검색된 데이터가 없습니다! \n");
+            }
+            break;
+        }
+        else if (keyword == 3)
+        {
+            printf("\n 검색할 게시글의 내용을 입력해주세요 : ");
+            scanf("%s", search);
+            printf("\n===============================================\n");
+            printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
+            printf("-------------------------------------------------\n");
+            for(int i = 0; i < post_index; i ++){
+                if(p[i].view == -1) continue;
+                if(strstr(p[i].post, search)){
+                    printf("%2d ",i+1);
+                    readOneContent(p[i]);
+                    num ++;
+                }
+            }
+            if(num == 0){
+                printf("\n=> 검색된 데이터가 없습니다! \n");
+            }
+            break;
+        }
+        else{
+            printf("\n숫자를 잘못 입력하셨습니다. 다시 입력해주세요\n");
+        }
+    }
+    
+    
+    
+}
+
+
 // 9. 생성일 , 추천수, 조회수 (높은순, 낮은순) 기준으로 보기 (입력: 게시판 구조체 배열, 출력:)
 void sortpost(Post *p);
+
+
 // 10. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)
 void saveboard(Post *list, int n){
     FILE* pfile = fopen("postboard.txt", "wt");
@@ -161,6 +253,7 @@ int select_Post_DataNo(Post *p, int count){
  	postlist(p, count);
  	printf("번호는? (취소:0)? ");
  	scanf("%d", &no);
+    readOnePost(p[no]);
     return no;
 }
 

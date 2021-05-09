@@ -17,7 +17,7 @@ int deletekeyword(Post *p);
 // 7. 게시글 수정 (입력: 게시판 구조체 배열 포인터, 출력:)
     // crud.h update
 // 8. 게시글 검색 (제목, 작성자, 내용 키워드)(입력: 게시판 구조체 배열, 출력:)
-void serchpost(Post *p);
+void searchpost(Post *p, int post_index);
 // 9. 생성일 , 추천수, 조회수 (높은순, 낮은순) 기준으로 보기 (입력: 게시판 구조체 배열, 출력:)
 void sortpost(Post *p);
 // 10. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)
