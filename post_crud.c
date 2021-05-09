@@ -64,9 +64,11 @@ void readOneContent(Post p){
 int updatepost(Post *p){
     //권한 확인 함수 호출 할 필요가 있음.
     printf("게시글 제목을 적어주세요. : ");
-    scanf("%s", p->title);
+    getchar();
+    scanf("%[^\n]s", p->title);
     printf("게시글 내용을 적어주세요. (500자까지 입력 가능합니다.)\n");
-    scanf("%s", p->title);
+    getchar();
+    scanf("%[^\n]s", p->post);
     printf("수정성공!\n");
     return 1;
 }
