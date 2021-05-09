@@ -16,7 +16,7 @@ void selectprintpost(Post *p, int count){
 }
 
 // 3. 게시판 제목 리스트 출력 (입력: 게시판 구조체 배열, 출력:X)
-void postlist(Post *p, int count){
+void printpostlist(Post *p, int count){
     printf("|   제목   |   작성자  |   조회수  |   좋아요수  |\n"); // 크기 조절 해야함
     printf("-------------------------------------------------\n");
     for(int i = 0; i < count; i++){
@@ -250,7 +250,7 @@ int select_User_DataNo(User *u, int count){ // 작성자로 검색할때 사용�
 //포스트 데이터 선택 함수
 int select_Post_DataNo(Post *p, int count){
     int no;
- 	postlist(p, count);
+ 	printpostlist(p, count);
  	printf("번호는? (취소:0)? ");
  	scanf("%d", &no);
     readOnePost(p[no]);

@@ -6,7 +6,7 @@
 // 2. 게시글 선택후 내용 출력(입력: 게시판 구조체 배열, 출력:) // 리스트 출력 없이 글 번호만 입력
 void selectprintpost(Post *p, int count); // 리스트에서 고르고 내용을 출력해야해서 리스트를 출력하고 번호를 고르는 함수 하나 추가함
 // 3. 게시판 제목 리스트 출력 (입력: 게시판 구조체 배열, 출력:X)
-void postlist(Post *p, int count); // VS listpost()??
+void printpostlist(Post *p, int count); // VS listpost()??
 void readOnePost(Post p); // 게시글의 제목(내용x)를 출력하는 함수.
 // 4. 게시판 글쓰기 (입력: 이용중인 계정 구조체, 카운터(리턴), 게시판 리스트 포인터, 출력: 1 or 0)
 int posting(Post *p, User u);
