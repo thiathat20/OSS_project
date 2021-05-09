@@ -23,3 +23,5 @@ void readpost(Post p);
 int updatepost(Post *p);
 // 글을 목록에서 삭제하는 함수
 int deletepost(Post *p);
+// 하나의 글을 출력하는 함수
+void readOneContent(Post p);
