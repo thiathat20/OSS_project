@@ -247,7 +247,7 @@ int loadboard(Post *list){ // 저장된 리스트파일을 불러오는 함수
         fscanf(pfile, " %[^\n]s", list[i+1].post);
         fscanf(pfile, " %d", &list[i+1].view);
         fscanf(pfile, " %d", &list[i+1].like);
-        fscanf(pfile, " %d", &list[i+1].index);
+        fscanf(pfile, " %d", i+1);
 	}
 	printf("*** 로딩 성공 ***\n");
 	fclose(pfile);

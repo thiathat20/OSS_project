@@ -51,7 +51,6 @@ int addpost(Post *p, char *user_account, int post_index){ // 작성중인 유저
     else{
         return 1;
     }
-
     return 1;
 }
 
