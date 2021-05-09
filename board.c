@@ -18,7 +18,7 @@ void selectprintpost(Post *p, int count){
     printf("|  제목 : %s  |  작성자 : %s  |  조회수 : %d  |  좋아요수 : %d  |\n내용 : %s\n", p[num].title, p[num].user, p[num].view, p[num].like, p[num].post);
     while(1){
         printf("이 글을 좋아요합니다.(yes = 1 / no = 0)");
-        scanf("%d", yesorno);
+        scanf("%d", &yesorno);
         if(yesorno == 0){
             printf("이 글을 좋아요하지 않았습니다.\n");
             printf("현재 좋아요 수는 %d개입니다.\n", p[num].like);
