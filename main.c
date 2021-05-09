@@ -56,6 +56,7 @@ int main(void){
 			addpost(&postlist[post_index++], userlist[loginflag].id);
 		}
 		else if(menu == 4){ // 게시글 삭제
+			// deletepost
 		}
 		else if(menu == 5){ // 게시글 수정
 		}
@@ -72,10 +73,6 @@ int main(void){
 			loginflag = login(userlist, user_index);
 		}
 		else if(menu == 10){ // 로그아웃
-			if(loginflag == -1){
-				printf("로그인이 필요합니다\n");
-				continue;
-			}
 			loginflag = logout();
 		}
 		else if(menu == 11){ // 계정 생성
@@ -85,20 +82,12 @@ int main(void){
 			listuser(userlist, user_index);
 		}
 		else if(menu == 13){ // 계정 비밀번호 수정
-			if(loginflag == -1){
-				printf("로그인이 필요합니다\n");
-				continue;
-			}
 			int no = loginflag;
 			if(loginflag != -1){ // 로그인 여부, 로그인 이용자 번호 따로 분리시키기
 				updateuser(&userlist[no-1]);
 			}
 		}
 		else if(menu == 14){
-			if(loginflag == -1){
-				printf("로그인이 필요합니다\n");
-				continue;
-			}
 			int no = loginflag;
 			if(loginflag != -1){ // 로그인 여부, 로그인 이용자 번호 따로 분리시키기
 				int deleteok ;
