@@ -117,13 +117,13 @@ int login(User *u, int count){
     for(no = 0; no<count; no++){
         if(u[no].pw == -1) continue;
         if(0 == strcmp(u[no].id, temp_id)){ // 아이디가 일치하면
-            no--;
+            // no--;
             printf("비밀번호를 입력하세요: ");
             getchar();
             scanf("%d", &temp_pw);
-            for(no = 0; no<count; no++){
-                if(u[no].pw == temp_pw) return no; // 비밀번호가 일치하면
-            }
+            // for(no = 0; no<count; no++){
+            if(u[no].pw == temp_pw) return no; // 비밀번호가 일치하면
+            // }
             printf("잘못된 비밀번호입니다.\n");
             return -1;
         }
