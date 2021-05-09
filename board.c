@@ -217,7 +217,6 @@ void saveboard(Post *list, int n){
         fprintf(pfile, "%s\n", list[i+1].post);
 		fprintf(pfile, "%d ", list[i+1].view);
 		fprintf(pfile, "%d ", list[i+1].like);
-		fprintf(pfile, "%d ", list[i+1].index);
 		fprintf(pfile, "\n");
 	}
 	fclose(pfile);
