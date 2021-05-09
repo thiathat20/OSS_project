@@ -48,7 +48,7 @@ int main(void){
 				continue;
 			}
 		if(menu == 1){ // 게시글 보기
-			if(post_count == 0){
+			if(post_index == 0){
 				printf("err: 등록된 게시글이 없습니다.\n");
 				continue;
 			}
@@ -56,7 +56,7 @@ int main(void){
 				selectprintpost(postlist, post_index);
 		}
 		else if(menu == 2){ // 게시글 목록 보기(제목만 보이도록)
-			if(post_count == 0){
+			if(post_index == 0){
 				printf("err: 등록된 게시글이 없습니다.\n");
 				continue;
 			}
@@ -69,7 +69,7 @@ int main(void){
 			post_index++;
 		}
 		else if(menu == 4){ // 게시글 삭제
-			if(post_count == 0){
+			if(post_index == 0){
 				printf("err: 등록된 게시글이 없습니다.\n");
 				continue;
 			}
@@ -91,7 +91,7 @@ int main(void){
 			}
 		}
 		else if(menu == 5){ // 게시글 수정
-			if(post_count == 0){
+			if(post_index == 0){
 				printf("err: 등록된 게시글이 없습니다.\n");
 				continue;
 			}
@@ -112,7 +112,7 @@ int main(void){
 			}
 		}
 		else if(menu == 6){ // 게시글 검색 -- 키워드, 작성자, ...
-			if(post_count == 0){
+			if(post_index == 0){
 				printf("err: 등록된 게시글이 없습니다.\n");
 				continue;
 			}
@@ -120,7 +120,7 @@ int main(void){
 				searchpost(postlist, post_index);
 		}
 		else if(menu == 7){ // 게시글 목록 정렬해서 보기
-			if(post_count == 0){
+			if(post_index == 0){
 				printf("err: 등록된 게시글이 없습니다.\n");
 				continue;
 			}
@@ -128,7 +128,7 @@ int main(void){
 				// 여기에 구현
 		}
 		else if(menu == 8){ // 게시판 저장
-			if(post_count == 0){
+			if(post_index == 0){
 				printf("err: 등록된 게시글이 없습니다.\n");
 				continue;
 			}

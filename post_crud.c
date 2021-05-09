@@ -46,7 +46,7 @@ int addpost(Post *p, char *user_account){ // 작성중인 유저 정보가 필�
     printf("내용을 확인하시려면 1번 아니면 0번을 입력해주세요 : ");
     scanf("%d", &num);
     if(num==1){
-        printf("제목 : %s \n 작성자 : %s\n  조회수 : %d \n 좋아요수 : %d\n내용 : %s\n", p->title, p->user, p->view, p->like, p->post);
+        printf("제목 : %s \n 작성자 : %s\n조회수 : %d \n좋아요수 : %d\n내용 : %s\n", p->title, p->user, p->view, p->like, p->post);
     }
     else{
         return 1;
