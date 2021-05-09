@@ -65,8 +65,8 @@ int main(void){
 			
 		}
 		else if(menu == 3) { // 게시글 쓰기
-			addpost(&postlist[post_index++], userlist[loginflag].id);
 			post_index++;
+			addpost(&postlist[post_index], userlist[loginflag].id);
 		}
 		else if(menu == 4){ // 게시글 삭제
 			if(post_index == 0){
@@ -85,7 +85,7 @@ int main(void){
 					scanf("%d", &deleteok);
 					if(deleteok == 1){
 						deletepost(&postlist[no-1]);
-						user_count--;
+						post_index--;
 					}
 				}
 			}
