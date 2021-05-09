@@ -31,7 +31,23 @@ int main(void){
 	int post_index = post_count;
 	int user_index = user_count;
 
+	int sort = 1; // 정렬 순서를 정합니다.
+
 	while(1){
+		if(sort == 1)
+			sortnew(postlist, post_index, 0);
+		else if(sort == 2)
+			sortnew(postlist, post_index, 1);
+		else if(sort == 3)
+			sortinglike(postlist, post_index, 0);
+		else if(sort == 4)
+			sortinglike(postlist, post_index, 1);
+		else if(sort == 5)
+			sortingview(postlist, post_index, 0);
+		else if(sort == 6)
+			sortingview(postlist, post_index, 1);
+
+
 		if(loginflag != -1){
 			printf("\n(**로그인 사용자: %s)\n", userlist[loginflag].id);
 		}
@@ -126,7 +142,7 @@ int main(void){
 			}
 			else{
 				// 뭔가 해야하는데 ㅋㅋ
-				sortpost(postlist, post_index);
+				sort = sortpost(postlist, post_index);
 			}
 			
 		}

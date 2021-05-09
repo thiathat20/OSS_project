@@ -24,7 +24,7 @@ void searchpost(Post *p, int post_index);
 void sortingnew(Post *p, int index, int updown);
 void sortinglike(Post *p, int index, int updown);
 void sortingview(Post *p, int index, int updown);
-void sortpost(Post *p, int index);
+int sortpost(Post *p, int index);
 
 // 10. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)
 void saveboard(Post *p, int count);

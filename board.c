@@ -240,10 +240,11 @@ void sortingview(Post *p, int index, int updown){
 }
 
 
-void sortpost(Post *p, int index){
+int sortpost(Post *p, int index){
     int select = 0;
     int i;
     int updown;
+    int sort;
     while(1){
         printf("게시글의 정렬 순서를 정합니다.\n");
         printf("생성일 기준(1) | 좋아요 수 기준(2) | 조회수 순(3) | 취소(0)\n");
@@ -258,11 +259,13 @@ void sortpost(Post *p, int index){
                 }
             }
             if(updown == 0){
+                sort = 1;
                 printf("최신 순으로 정렬합니다.\n");
                 sortingnew(p, index, updown);
                 break;
             }
             if(updown == 1){
+                sort = 2;
                 printf("오래된 순으로 정렬합니다.\n");
                 sortingnew(p, index, updown);
                 break;
@@ -279,11 +282,13 @@ void sortpost(Post *p, int index){
                 }
             }
             if(updown == 0){
+                sort = 3;
                 printf("많은 순으로 정렬합니다.\n");
                 sortinglike(p, index, updown);
                 break;
             }
             if(updown == 1){
+                sort = 4;
                 printf("적은 순으로 정렬합니다.\n");
                 sortinglike(p, index, updown);
                 break;
@@ -301,11 +306,13 @@ void sortpost(Post *p, int index){
                 }
             }
             if(updown == 0){
+                sort = 5;
                 printf("많은 순으로 정렬합니다.\n");
                 sortingview(p, index, updown);
                 break;
             }
             if(updown == 1){
+                sort = 6;
                 printf("적은 순으로 정렬합니다.\n");
                 sortingview(p, index, updown);
                 break;
@@ -316,6 +323,7 @@ void sortpost(Post *p, int index){
             break;
         }
     }
+    return sort;
 }
 
 
