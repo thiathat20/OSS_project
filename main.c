@@ -75,7 +75,7 @@ int main(void){
 			}
 			else{
 				int no = select_Post_DataNo(postlist, post_index);
-				if(0 != strcmp(userlist[loginflag].id, postlist[no-1].user)){
+				if(0 != strcmp(userlist[loginflag].id, postlist[no].user)){
 					printf("err: 글은 작성자만 지울수 있습니다.\n");
 					continue;
 				}
@@ -84,7 +84,7 @@ int main(void){
 					printf("정말로 삭제하시겠습니까?(삭제:1)");
 					scanf("%d", &deleteok);
 					if(deleteok == 1){
-						deletepost(&postlist[no-1]);
+						deletepost(&postlist[no]);
 					}
 				}
 			}
@@ -96,7 +96,7 @@ int main(void){
 			}
 			else{
 				int no = select_Post_DataNo(postlist, post_index);
-				if(0 != strcmp(userlist[loginflag].id, postlist[no-1].user)){
+				if(0 != strcmp(userlist[loginflag].id, postlist[no].user)){
 					printf("err: 글은 작성자만 수정할 수 있습니다.\n");
 					continue;
 				}
@@ -105,7 +105,7 @@ int main(void){
 					printf("기존 글을 지우고 새로 작성 합니다 정말로 수정하시겠습니까?(수정:1)");
 					scanf("%d", &updateok);
 					if(updateok == 1){
-						updatepost(&postlist[no-1]);
+						updatepost(&postlist[no]);
 					}
 				}
 			}
