@@ -172,7 +172,7 @@ void sortingnew(Post *p, int index, int updown){
             }
         }
     }
-    if(updown == 0){ // 1이면 낮은순 
+    if(updown == 1){ // 1이면 낮은순 
         for(i = 1; i < index; i++){
             for(j = 1; j < index - i ; j++){
                 if(p[j].index > p[j+1].index){
@@ -246,12 +246,12 @@ void sortpost(Post *p, int index){
     int updown;
     while(1){
         printf("게시글의 정렬 순서를 정합니다.\n");
-        printf("생성일 기준(1), 좋아요 수 기준(2), 조회수 순(3), 취소(0)\n");
+        printf("생성일 기준(1) | 좋아요 수 기준(2) | 조회수 순(3) | 취소(0)\n");
         printf("번호를 입력해주세요 : \n");
         scanf("%d", &select);
         if (select == 1){
             while(1){
-                printf("최신 순은 0번 오래된 순 1번\n");
+                printf("최신 순은 (0번) | 오래된 순 (1번)\n");
                 scanf("%d", &updown);
                 if(updown == 1 || updown == 0){
                     break;
@@ -272,19 +272,19 @@ void sortpost(Post *p, int index){
         {
             printf("좋아요가 많은 순으로 게시글을 정렬합니다.\n");
             while(1){
-                printf("최신 순은 0번 오래된 순 1번\n");
+                printf("많은 순은 (0번) | 적은 순 (1번)\n");
                 scanf("%d", &updown);
                 if(updown == 1 || updown == 0){
                     break;
                 }
             }
             if(updown == 0){
-                printf("최신 순으로 정렬합니다.\n");
+                printf("많은 순으로 정렬합니다.\n");
                 sortinglike(p, index, updown);
                 break;
             }
             if(updown == 1){
-                printf("오래된 순으로 정렬합니다.\n");
+                printf("적은 순으로 정렬합니다.\n");
                 sortinglike(p, index, updown);
                 break;
             }
@@ -294,19 +294,19 @@ void sortpost(Post *p, int index){
         {
             printf("조회수가 많은 순으로 게시글을 정렬합니다.\n");
             while(1){
-                printf("최신 순은 0번 오래된 순 1번\n");
+                printf("많은 순은 (0번) | 적은 순 (1번)\n");
                 scanf("%d", &updown);
                 if(updown == 1 || updown == 0){
                     break;
                 }
             }
             if(updown == 0){
-                printf("최신 순으로 정렬합니다.\n");
+                printf("많은 순으로 정렬합니다.\n");
                 sortingview(p, index, updown);
                 break;
             }
             if(updown == 1){
-                printf("오래된 순으로 정렬합니다.\n");
+                printf("적은 순으로 정렬합니다.\n");
                 sortingview(p, index, updown);
                 break;
             }
@@ -324,6 +324,8 @@ void sortpost(Post *p, int index){
 
 // 10. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)
 void saveboard(Post *list, int n){
+    sortingnew(list, n, 1);
+
     FILE* pfile = fopen("postboard.txt", "wt");
 	for(int i=0; i<n; i++){
 		if(list[i].view == -1) continue;
