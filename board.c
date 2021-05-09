@@ -22,7 +22,7 @@ void readPostList(Post *p, int count){
     for(int i = 0; i < count; i++){
         if(p[i].view == -1) continue;
             printf("%2d  ",i+1);
-        readOnePost(p[i]);
+        readOnePost(p[i+1]);
     }
 }
 
@@ -74,7 +74,7 @@ void searchpost(Post *p, int post_index){
                 if(p[i].view == -1) continue;
                 if(strstr(p[i].title, search)){
                     printf("%2d ",i+1);
-                    readOneContent(p[i]);
+                    readOneContent(p[i+1]);
                     num ++;
                 }
             }
@@ -95,7 +95,7 @@ void searchpost(Post *p, int post_index){
                 if(p[i].view == -1) continue;
                 if(strstr(p[i].user, search)){
                     printf("%2d ",i+1);
-                    readOneContent(p[i]);
+                    readOneContent(p[i+1]);
                     num ++;
                 }
             }
@@ -115,7 +115,7 @@ void searchpost(Post *p, int post_index){
                 if(p[i].view == -1) continue;
                 if(strstr(p[i].post, search)){
                     printf("%2d ",i+1);
-                    readOneContent(p[i]);
+                    readOneContent(p[i+1]);
                     num ++;
                 }
             }
