@@ -68,7 +68,7 @@ int main(void){
 				scanf("%d", &deleteok);
 				if(deleteok == 1){
 					deletepost(&postlist[no-1]);
-					user_count--;
+					post_count--;
 				}
 			}
 			
@@ -112,7 +112,7 @@ int main(void){
 		else if(menu == 13){ // 계정 비밀번호 수정
 			int no = loginflag;
 			if(loginflag != -1){ // 로그인 여부, 로그인 이용자 번호 따로 분리시키기
-				updateuser(&userlist[no-1]);
+				updateuser(&userlist[no]);
 			}
 		}
 		else if(menu == 14){

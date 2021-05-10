@@ -35,3 +35,5 @@ void listuser(User *u, int count);
 //데이터 선택 함수
 int select_User_DataNo(User u[], int count);
 int select_Post_DataNo(Post p[], int count);
+
+//ID중복 확인
