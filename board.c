@@ -242,7 +242,7 @@ void sortingview(Post *p, int index, int updown){
 
 int sortpost(Post *p, int index){
     int select = 0;
-    int i;
+    // int i; // 이거 함수에서 안쓰이는거 같아요
     int updown;
     int sort;
     while(1){
