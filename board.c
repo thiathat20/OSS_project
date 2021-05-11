@@ -334,17 +334,17 @@ int sortpost(Post *p, int index){
 void saveboard(Post *list, int n){
     sortingnew(list, n, 1);
 
-    FILE* pfile = fopen("postboard.txt", "wt");
-	for(int i=0; i<n; i++){
-		if(list[i].view == -1) continue;
-		fprintf(pfile, "%s\n", list[i+1].title);
-        fprintf(pfile, "%s\n", list[i+1].user);
-        fprintf(pfile, "%s\n", list[i+1].post);
-		fprintf(pfile, "%d ", list[i+1].view);
-		fprintf(pfile, "%d ", list[i+1].like);
-		fprintf(pfile, "\n");
-	}
-	fclose(pfile);
+    // FILE* pfile = fopen("postboard.txt", "wt");
+	// for(int i=0; i<n; i++){
+	// 	if(list[i].view == -1) continue;
+	// 	fprintf(pfile, "%s\n", list[i].title);
+    //     fprintf(pfile, "%s\n", list[i].user);
+    //     fprintf(pfile, "%s\n", list[i].post);
+	// 	fprintf(pfile, "%d ", list[i].view);
+	// 	fprintf(pfile, "%d ", list[i].like);
+	// 	fprintf(pfile, "\n");
+	// }
+	// fclose(pfile);
     printf("저장 완료\n");
 }
 void saveuser(User *list, int n){
