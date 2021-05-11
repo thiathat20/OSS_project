@@ -3,3 +3,4 @@ board
 .vscode
 *.txt
 screenshots
+.DS_Store
