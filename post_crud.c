@@ -32,7 +32,7 @@ int selectMenu(){ // 원하는 기능을 선택하는 함수
 }
 
 // 글 추가하는 함수 이미 board.c 에서 구현 되어 있기 때문에 사용해야 하는 건지 모르겠음.
-int addpost(Post *p, char *user_account){ // 작성중인 유저 정보가 필요합니다.
+int addpost(Post *p, char *user_account, int post_index){ // 작성중인 유저 정보가 필요합니다.
     printf("게시글 제목을 적어주세요. : ");
     getchar();
     scanf("%[^\n]s", p->title);
@@ -40,24 +40,23 @@ int addpost(Post *p, char *user_account){ // 작성중인 유저 정보가 필�
     getchar();
     scanf("%[^\n]s", p->post);
     strcpy(p->user, user_account); // user_account작성자중인 아이디를 알아야함. (작성자)
-
+    p->index = post_index;
     int num; //내용 확인할지 물어보기 위해 만듬
     printf("게시글 작성이 완료되었습니다.\n");
     printf("내용을 확인하시려면 1번 아니면 0번을 입력해주세요 : ");
     scanf("%d", &num);
     if(num==1){
-        printf("제목 : %s \n 작성자 : %s\n  조회수 : %d \n 좋아요수 : %d\n내용 : %s\n", p->title, p->user, p->view, p->like, p->post);
+        printf("제목 : %s \n등록번호 : %d\n작성자 : %s\n조회수 : %d \n좋아요수 : %d\n내용 : %s\n", p->title, p->index, p->user, p->view, p->like, p->post);
     }
     else{
         return 1;
     }
-
     return 1;
 }
 
 // 하나의 글을 출력하는 함수
 void readOneContent(Post p){
-    printf("제목 : %s \n 작성자 : %s \n내용 : %s \n\n  조회수 : %d \n 좋아요수 : %d\n내용 : %s\n", p.title, p.user, p.post, p.view, p.like, p.post);
+    printf(" |  제목 : %s  |  작성자 : %s  |  조회수 : %d  |  좋아요수 : %d  |\n내용 : %s\n", p.title, p.user, p.view, p.like, p.post);
 }
 
 // 글을 수정하는 함수 (내용은 모두 지워지고 새로 작성하게 된다.)

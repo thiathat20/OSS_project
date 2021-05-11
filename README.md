@@ -41,14 +41,14 @@
 
 ### - 21800679 [정진형](https://thiathat20.github.io/)😉
 #### 맡은 역할
-- CRUD 기능 설계
+- CRUD 기능 설계 - 로그인을 위한 계정 CRUD
 - CRUD 정의 및 기초 구현 (Main)
 - Team Project Repository 관리
 - 계정 관련 함수 구현
 
 ### - 21800333 [박훈성](https://patcha98.github.io/)😂
 #### 맡은 역할
-- CRUD 기능 설계
+- CRUD 기능 설계 - 글 포스팅을 위한 post CRUD
 - Wiki & README 디자인
 - CRUD 정의 및 기초 구현 (Support)
 - 게시글 관련 함수 구현
