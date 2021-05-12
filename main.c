@@ -175,7 +175,11 @@ int main(void){
 			loginflag = logout();
 		}
 		else if(menu == 11){ // 계정 생성
-			user_count += addUser(&userlist[user_index++]);
+			// user_count += addUser(&userlist[user_index++]);
+			if(addUser(userlist, user_index)){
+				user_index++;
+				user_count++;
+			}
 		}
 		else if(menu == 12){ // 계정 목록 확인
 			listuser(userlist, user_index);

@@ -5,13 +5,17 @@
 #endif
 #include <string.h>
 
-int addUser(User *u){
+int addUser(User *u, int count){
+    char temp[20];
     printf("생성할 ID 입력: ");
     getchar();
-    scanf("%[^\n]s", u->id);
+    scanf("%[^\n]s", temp);
     //ID중복 여부 확인 추가하기;-------------------------------------------------------------------------
+    if(!idcheck(temp, u, count)) return 0;
+    strcpy(u[count].id, temp);
+    //////////////////////
     printf("생성할 비밀번호(숫자) 입력: ");
-    scanf("%d", &u->pw);
+    scanf("%d", &(u[count].pw));
     printf("계정이 생성 되었습니다.\n");
     return 1;
 }
@@ -39,5 +43,15 @@ int deleteuser(User *u){
     u->pw = -1;
     u->id[0] = '\0';
     printf("계정이 삭제 되었습니다.\n");
+    return 1;
+}
+
+int idcheck(char *scanid, User *u, int count){
+    for(int i=0; i<count; i++){
+        if(0 == (strcmp(scanid, u[i].id))){
+            printf("err: 중복된 ID\n");
+            return 0;
+        }
+    }
     return 1;
 }
