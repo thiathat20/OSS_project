@@ -113,6 +113,7 @@ int main(void){
 				}
 				else if(slt == 1){
 					// 키워드 삭제함수
+					post_count -= deletekeyword(postlist, &userlist[loginflag], post_index);
 				}
 				else printf("잘못된 숫자입니다.\n");
 			}
@@ -175,7 +176,7 @@ int main(void){
 			loginflag = logout();
 		}
 		else if(menu == 11){ // 계정 생성
-			// user_count += addUser(&userlist[user_index++]);
+			// user_count += addUser(&userlist[user_index++]); // -- 계정 중복 확인 가능하게 아래처럼 변경 
 			if(addUser(userlist, user_index)){
 				user_index++;
 				user_count++;

@@ -15,7 +15,7 @@ int posting(Post *p, User u);
 // 5. 게시글 삭제 (입력: 게시판 구조체 배열 포인터, 계정 구조체, 출력: 1 or 0)
     // crud.h - deletepost
 // 6. 게시글 키워드로 삭제 (입력: 게시판 구조체 배열 포인터,  계정 구조체, 출력:)
-int deletekeyword(Post *p);
+int deletekeyword(Post *p, User *, int);
 // 7. 게시글 수정 (입력: 게시판 구조체 배열 포인터, 출력:)
     // crud.h update
 // 8. 게시글 검색 (제목, 작성자, 내용 키워드)(입력: 게시판 구조체 배열, 출력:)
@@ -41,5 +41,3 @@ void listuser(User *u, int count);
 //데이터 선택 함수
 int select_User_DataNo(User u[], int count);
 int select_Post_DataNo(Post p[], int count);
-
-//ID중복 확인

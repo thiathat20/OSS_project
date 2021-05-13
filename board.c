@@ -64,15 +64,26 @@ void readOnePost(Post p){ // 게시글 리스트 번호 출력
 
 
 // 6. 게시글 키워드로 삭제 (입력: 게시판 구조체 배열 포인터,  계정 구조체, 출력:)
-int deletekeyword(Post *p){
+int deletekeyword(Post *p, User *u, int post_index){
     char search[100];
-
-
-
-
-
-    return 1; // 임시 리턴(warring제거용) -- 필요에 따라 수정 할 것
-
+    searchpost(p, post_index); // 검색할 키워드 말고 그냥 키워드로 바꾸기
+    printf("삭제할 게시글의 번호를 입력해주세요\n");
+    int no = 0;
+    scanf("%d", &no);
+    if(0 != strcmp(u->id, p[no].user)){
+        printf("err: 글은 작성자만 지울수 있습니다.\n");
+        return 0;
+    }
+    if( no > 0){
+        int deleteok ;
+        printf("정말로 삭제하시겠습니까?(삭제:1 / 취소:0)");
+        scanf("%d", &deleteok);
+        if(deleteok == 1){
+            deletepost(&p[no]);
+            return 1;
+        }
+    }
+    return 0;
 }
 // 7. 게시글 수정 (입력: 게시판 구조체 배열 포인터, 출력:)
     // crud.h update
@@ -84,12 +95,12 @@ void searchpost(Post *p, int post_index){
     int keyword = 0;
     int num = 0;
     while(1){
-        printf("제목[1], 작성자[2], 내용[3] 검색할 키워드를 선택해주세요 : ");
+        printf("제목[1], 작성자[2], 내용[3] 메뉴를 선택해주세요 : ");
         scanf("%d", &keyword);
         if (keyword == 1)
         {
             //제목으로 검색
-            printf("\n 검색할 게시글의 제목을 입력해주세요 : ");
+            printf("\n 게시글의 제목을 입력해주세요 : ");
             scanf("%s", search);
             printf("-------------------------------------------------------------------------------------\n");
             printf("-------------------------------------------------------------------------------------\n");
@@ -109,7 +120,7 @@ void searchpost(Post *p, int post_index){
         else if (keyword == 2)
         {
             //제목으로 검색
-            printf("\n 검색할 게시글의 작성자를 입력해주세요 : ");
+            printf("\n 게시글의 작성자를 입력해주세요 : ");
             scanf("%s", search);
             printf("-------------------------------------------------------------------------------------\n");
             printf("-------------------------------------------------------------------------------------\n");
@@ -128,7 +139,7 @@ void searchpost(Post *p, int post_index){
         }
         else if (keyword == 3)
         {
-            printf("\n 검색할 게시글의 내용을 입력해주세요 : ");
+            printf("\n 게시글의 내용을 입력해주세요 : ");
             scanf("%s", search);
             printf("-------------------------------------------------------------------------------------\n");
             printf("-------------------------------------------------------------------------------------\n");
@@ -450,4 +461,3 @@ int select_Post_DataNo(Post *p, int count){
  	scanf("%d", &no);
     return no;
 }
-
