@@ -30,6 +30,7 @@ int main(void){
 	int sort = 2; // 정렬 순서를 정합니다.
 
 	while(1){
+		
 		if(sort == 1)
 			sortingnew(postlist, post_index, 0);
 		else if(sort == 2)
@@ -45,7 +46,7 @@ int main(void){
 
 
 		if(loginflag != -1){ // 현재 이용중인 사용자 표시
-			printf("\n(** 로그인 사용자: %s **)\n", userlist[loginflag].id);
+			printf("\n(** 로그인 사용자: \"%s\" **)\n", userlist[loginflag].id);
 		}
 		menu = selectMenu(); // 기능 메뉴 선택
 		if(menu == 0) break;
@@ -86,32 +87,63 @@ int main(void){
 				continue;
 			}
 			else{
+				// ------------------------수정전-----------------------------
+				// int slt;
+				// printf("( 번호로 삭제하기:0 / 키워드로 삭제하기:1 ): ");
+				// getchar();
+				// scanf("%d", &slt);
+				// if(slt == 0){ // 번호로 삭제하기
+				// 	printf("삭제할 게시글의 번호를 입력해주세요\n");
+				// 	int no = select_Post_DataNo(postlist, post_index);
+				// 	if(0 != strcmp(userlist[loginflag].id, postlist[no].user)){
+				// 		printf("err: 글은 작성자만 지울수 있습니다.\n");
+				// 		continue;
+				// 	}
+				// 	if( no > 0){
+				// 		int deleteok ;
+				// 		printf("정말로 삭제하시겠습니까?(삭제:1 / 취소:0)");
+				// 		scanf("%d", &deleteok);
+				// 		if(deleteok == 1){
+				// 			deletepost(&postlist[no]);
+				// 			post_count--;
+				// 		}
+				// 	}
+				// }
+				// else if(slt == 1){
+				// 	// 키워드 삭제함수
+				// 	post_count -= deletekeyword(postlist, &userlist[loginflag], post_index);
+				// }
+				// else printf("잘못된 숫자입니다.\n");
+				// ------------------------------------------------------------------------
 				int slt;
+				int no = 0;
 				printf("( 번호로 삭제하기:0 / 키워드로 삭제하기:1 ): ");
 				getchar();
 				scanf("%d", &slt);
 				if(slt == 0){ // 번호로 삭제하기
 					printf("삭제할 게시글의 번호를 입력해주세요\n");
-					int no = select_Post_DataNo(postlist, post_index);
-					if(0 != strcmp(userlist[loginflag].id, postlist[no].user)){
-						printf("err: 글은 작성자만 지울수 있습니다.\n");
-						continue;
-					}
-					if( no > 0){
-						int deleteok ;
-						printf("정말로 삭제하시겠습니까?(삭제:1 / 취소:0)");
-						scanf("%d", &deleteok);
-						if(deleteok == 1){
-							deletepost(&postlist[no]);
-							post_count--;
-						}
-					}
+					no = select_Post_DataNo(postlist, post_index);
 				}
 				else if(slt == 1){
-					// 키워드 삭제함수
-					post_count -= deletekeyword(postlist, &userlist[loginflag], post_index);
+					printf("삭제할 게시글의 번호를 입력해주세요\n");
+					searchpost(postlist, post_index);
+					printf("번호는? (취소:0)? ");
+ 					scanf("%d", &no);
 				}
-				else printf("잘못된 숫자입니다.\n");
+				else printf("잘못된 입력입니다.\n");
+				if(0 != strcmp(userlist[loginflag].id, postlist[no].user)){
+					printf("err: 글은 작성자만 지울수 있습니다.\n");
+					continue;
+				}
+				else if(no > 0){
+					int deleteok ;
+					printf("정말로 삭제하시겠습니까?(삭제:1 / 취소:0)");
+					scanf("%d", &deleteok);
+					if(deleteok == 1){
+						deletepost(&postlist[no]);
+						post_count--;
+					}
+				}
 			}
 		}
 		else if(menu == 5){ // 게시글 수정
