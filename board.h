@@ -13,8 +13,6 @@ int posting(Post *p, User u);
 
 // 4. 게시글 삭제 (입력: 게시판 구조체 배열 포인터, 계정 구조체, 출력: 1 or 0)
 // crud.h - deletepost
-// 4. 게시글 키워드로 삭제 (입력: 게시판 구조체 배열 포인터,  계정 구조체, 출력:)
-int deletekeyword(Post *p, User *, int);
 
 // 5. 게시글 수정 (입력: 게시판 구조체 배열 포인터, 출력:)
 // crud.h update

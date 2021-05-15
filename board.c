@@ -55,28 +55,7 @@ void readOnePost(Post p){ // 게시글 리스트 번호 출력
 
 // 4. 게시글 삭제 (입력: 게시판 구조체 배열 포인터, 계정 구조체, 출력: 1 or 0)
 // crud.h - deletepost
-// 4. 게시글 키워드로 삭제 (입력: 게시판 구조체 배열 포인터,  계정 구조체, 출력:)
-int deletekeyword(Post *p, User *u, int post_index){
-    char search[100];
-    searchpost(p, post_index);
-    printf("삭제할 게시글의 번호를 입력해주세요\n");
-    int no = 0;
-    scanf("%d", &no);
-    if(0 != strcmp(u->id, p[no].user)){
-        printf("err: 글은 작성자만 지울수 있습니다.\n");
-        return 0;
-    }
-    if( no > 0){
-        int deleteok ;
-        printf("정말로 삭제하시겠습니까?(삭제:1 / 취소:0)");
-        scanf("%d", &deleteok);
-        if(deleteok == 1){
-            deletepost(&p[no]);
-            return 1;
-        }
-    }
-    return 0;
-}
+
 
 // 5. 게시글 수정 (입력: 게시판 구조체 배열 포인터, 출력:)
 // crud.h update
