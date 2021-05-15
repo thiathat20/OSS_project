@@ -18,10 +18,6 @@ int main(void){
 	int menu;
 	int loginflag = -1; // 로그인 상태 확인 
 	
-	//하나로 합칠 수 있을거 같은데... board.count 이런 느낌?
-	// int post_count = loadData(boardlist); // file open/load
-	// int user_count = loadData(userlist);
-	
 	int post_count = 0; // file open/load
 	int user_count = 0; // 로드 구한 하면 계정 갯수 넣기
 	
