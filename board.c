@@ -7,9 +7,7 @@
 
 #include <string.h>
 
-// 11. 계정생성(아이디 비번 입력 받아 저장) (입력: 계정 구조체 배열 포인터, 출력:)
-    // user_crud.h
-// 2. 게시글 선택후 내용 출력(입력: 게시판 구조체 배열, 출력:) // 리스트 출력 없이 글 번호만 입력
+// 1. 게시글 선택후 내용 출력(입력: 게시판 구조체 배열, 출력:)
 void selectprintpost(Post *p, int count){
     int num;
     int yesorno;
@@ -35,11 +33,9 @@ void selectprintpost(Post *p, int count){
             printf("숫자를 잘못 입력하셨습니다. 다시 입력해주세요.\n");
         }
     }
-    
-    
 }
 
-// 3. 게시판 제목 리스트 출력 (입력: 게시판 구조체 배열, 출력:X)
+// 2. 게시판 제목 리스트 출력 (입력: 게시판 구조체 배열, 출력:X)
 void readPostList(Post *p, int count){
     printf("-------------------------------------------------------------------------------------\n");
     printf("-------------------------------------------------------------------------------------\n");
@@ -49,24 +45,20 @@ void readPostList(Post *p, int count){
         readOnePost(p[i+1]);
     }
 }
-
-
 void readOnePost(Post p){ // 게시글 리스트 번호 출력
     printf("|  제목 : %s  |  작성자 : %s  |  조회수 : %d  |  좋아요수 : %d  |  등록번호 : %d\n", p.title, p.user, p.view, p.like, p.index);// 게시글의 제목 작성자 조회수 추천수 만 표시
 }
 
-// 4. 게시판 글쓰기 (입력: 이용중인 계정 구조체, 카운터(리턴), 게시판 리스트 포인터, 출력: 1 or 0)
-    //post_crud.c
+// 3. 게시판 글쓰기 (입력: 이용중인 계정 구조체, 카운터(리턴), 게시판 리스트 포인터, 출력: 1 or 0)
+//post_crud.c
 
 
-// 5. 게시글 삭제 (입력: 게시판 구조체 배열 포인터, 계정 구조체, 출력: 1 or 0)
-    // crud.h - deletepost
-
-
-// 6. 게시글 키워드로 삭제 (입력: 게시판 구조체 배열 포인터,  계정 구조체, 출력:)
+// 4. 게시글 삭제 (입력: 게시판 구조체 배열 포인터, 계정 구조체, 출력: 1 or 0)
+// crud.h - deletepost
+// 4. 게시글 키워드로 삭제 (입력: 게시판 구조체 배열 포인터,  계정 구조체, 출력:)
 int deletekeyword(Post *p, User *u, int post_index){
     char search[100];
-    searchpost(p, post_index); // 검색할 키워드 말고 그냥 키워드로 바꾸기
+    searchpost(p, post_index);
     printf("삭제할 게시글의 번호를 입력해주세요\n");
     int no = 0;
     scanf("%d", &no);
@@ -85,11 +77,12 @@ int deletekeyword(Post *p, User *u, int post_index){
     }
     return 0;
 }
-// 7. 게시글 수정 (입력: 게시판 구조체 배열 포인터, 출력:)
-    // crud.h update
+
+// 5. 게시글 수정 (입력: 게시판 구조체 배열 포인터, 출력:)
+// crud.h update
 
 
-// 8. 게시글 검색 (제목, 작성자, 내용 키워드)(입력: 게시판 구조체 배열, 출력:)
+// 6. 게시글 검색 (제목, 작성자, 내용 키워드)(입력: 게시판 구조체 배열, 출력:)
 void searchpost(Post *p, int post_index){
     char search[100];
     int keyword = 0;
@@ -160,15 +153,10 @@ void searchpost(Post *p, int post_index){
             printf("\n숫자를 잘못 입력하셨습니다. 다시 입력해주세요\n");
         }
     }
-    
-    
-    
 }
 
 
-// 9. 생성일 , 추천수, 조회수 (높은순, 낮은순) 기준으로 보기 (입력: 게시판 구조체 배열, 출력:)
-
-
+// 7. 생성일 , 추천수, 조회수 (높은순, 낮은순) 기준으로 보기 (입력: 게시판 구조체 배열, 출력:)
 void sortingnew(Post *p, int index, int updown){
     int i, j;
     Post temp;
@@ -195,7 +183,6 @@ void sortingnew(Post *p, int index, int updown){
         }
     }
 }
-
 void sortinglike(Post *p, int index, int updown){
     int i, j;
     Post temp;
@@ -249,11 +236,8 @@ void sortingview(Post *p, int index, int updown){
         }
     }
 }
-
-
 int sortpost(Post *p, int index){
     int select = 0;
-    // int i; // 이거 함수에서 안쓰이는거 같아요
     int updown;
     int sort;
     while(1){
@@ -337,11 +321,7 @@ int sortpost(Post *p, int index){
     return sort;
 }
 
-
-
-
-
-// 10. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)
+// 8. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)
 void saveboard(Post *list, int n){
     sortingnew(list, n, 1);
 
@@ -358,6 +338,7 @@ void saveboard(Post *list, int n){
 	fclose(pfile);
     printf("저장 완료\n");
 }
+// 8. 계정 저장
 void saveuser(User *list, int n){
     FILE* pfile = fopen("user.txt", "wt");
 	for(int i=0; i<n; i++){
@@ -367,6 +348,7 @@ void saveuser(User *list, int n){
 	}
 	fclose(pfile);
 }
+// 게시판 불러오기
 int loadboard(Post *list){ // 저장된 리스트파일을 불러오는 함수
 	FILE* pfile = fopen("postboard.txt", "rt");
 	if(pfile == NULL){
@@ -388,6 +370,7 @@ int loadboard(Post *list){ // 저장된 리스트파일을 불러오는 함수
 	fclose(pfile);
 	return i;
 }
+// 계정 불러오기
 int loaduser(User *list){ // 저장된 리스트파일을 불러오는 함수
 	FILE* pfile = fopen("user.txt", "rt");
 	if(pfile == NULL){
@@ -434,6 +417,10 @@ int logout(){
     printf("로그아웃 되었습니다.\n");
     return -1;
 }
+
+// 11. 계정생성(아이디 비번 입력 받아 저장) (입력: 계정 구조체 배열 포인터, 출력:)
+// user_crud.h
+
 // 12. 계정 목록 출력
 void listuser(User *u, int count){
     printf("\n========게시판 사용자 목록========\n");
@@ -453,7 +440,7 @@ int select_User_DataNo(User *u, int count){ // 작성자로 검색할때 사용�
     return no;
 }
 
-//포스트 데이터 선택 함수
+//포스팅 데이터 선택 함수
 int select_Post_DataNo(Post *p, int count){
     int no;
  	readPostList(p, count);

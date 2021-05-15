@@ -44,22 +44,22 @@ int main(void){
 			sortingview(postlist, post_index, 1);
 
 
-		if(loginflag != -1){
-			printf("\n(**로그인 사용자: %s)\n", userlist[loginflag].id);
+		if(loginflag != -1){ // 현재 이용중인 사용자 표시
+			printf("\n(** 로그인 사용자: %s **)\n", userlist[loginflag].id);
 		}
-		menu = selectMenu();
+		menu = selectMenu(); // 기능 메뉴 선택
 		if(menu == 0) break;
 		if(menu != 11)
 			if(user_count == 0){
 				printf("err: 등록된 사용자가 없습니다.\n");
 				continue;
 			}
-		if(menu != 9 && menu != 12 && menu != 11)
+		if(menu != 9 && menu != 12 && menu != 11) // 로그인 상태가 아니면 이용 가능한 메뉴 제약
 			if(loginflag == -1){
 				printf("로그인이후 이용가능 합니다.\n");
 				continue;
 			}
-		if(menu == 1){ // 게시글 보기
+		if(menu == 1){ // 게시글 내용 보기
 			if(post_index == 0){
 				printf("err: 등록된 게시글이 없습니다.\n");
 				continue;
@@ -90,7 +90,7 @@ int main(void){
 				printf("( 번호로 삭제하기:0 / 키워드로 삭제하기:1 ): ");
 				getchar();
 				scanf("%d", &slt);
-				if(slt == 0){
+				if(slt == 0){ // 번호로 삭제하기
 					printf("삭제할 게시글의 번호를 입력해주세요\n");
 					int no = select_Post_DataNo(postlist, post_index);
 					if(0 != strcmp(userlist[loginflag].id, postlist[no].user)){

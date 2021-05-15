@@ -6,8 +6,8 @@
 
 #include <string.h>
 
-
-int selectMenu(){ // 원하는 기능을 선택하는 함수
+// 원하는 기능을 선택하는 함수
+int selectMenu(){ 
     int menu;
     printf("\n*** 게시판 ***\n");
     
@@ -61,7 +61,6 @@ void readOneContent(Post p){
 
 // 글을 수정하는 함수 (내용은 모두 지워지고 새로 작성하게 된다.)
 int updatepost(Post *p){
-    //권한 확인 함수 호출 할 필요가 있음.
     printf("게시글 제목을 적어주세요. : ");
     getchar();
     scanf("%[^\n]s", p->title);
@@ -75,7 +74,6 @@ int updatepost(Post *p){
 
 // 글을 목록에서 삭제하는 함수
 int deletepost(Post *p){
-    //권한 확인 함수 호출 할 필요가 있음.
     p->title[0] = '\0';
     p->user[0] = '\0';
     p->post[0] = '\0';

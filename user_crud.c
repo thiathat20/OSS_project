@@ -5,15 +5,14 @@
 #endif
 #include <string.h>
 
+// 아이디 생성
 int addUser(User *u, int count){
     char temp[20];
     printf("생성할 ID 입력: ");
     getchar();
     scanf("%[^\n]s", temp);
-    //ID중복 여부 확인 추가하기;-------------------------------------------------------------------------
     if(!idcheck(temp, u, count)) return 0;
     strcpy(u[count].id, temp);
-    //////////////////////
     printf("생성할 비밀번호(숫자) 입력: ");
     scanf("%d", &(u[count].pw));
     printf("계정이 생성 되었습니다.\n");
@@ -46,6 +45,7 @@ int deleteuser(User *u){
     return 1;
 }
 
+// 아이디 중복 여부 확인
 int idcheck(char *scanid, User *u, int count){
     for(int i=0; i<count; i++){
         if(0 == (strcmp(scanid, u[i].id))){
