@@ -67,6 +67,7 @@ void searchpost(Post *p, int post_index){
     int keyword = 0;
     int num = 0;
     while(1){
+        clearbuffer();
         printf("제목[1], 작성자[2], 내용[3] 메뉴를 선택해주세요 : ");
         scanf("%d", &keyword);
         if (keyword == 1)
@@ -220,12 +221,14 @@ int sortpost(Post *p, int index){
     int updown;
     int sort;
     while(1){
+        clearbuffer();
         printf("게시글의 정렬 순서를 정합니다.\n");
         printf("생성일 기준(1) | 좋아요 수 기준(2) | 조회수 순(3) | 취소(0)\n");
         printf("번호를 입력해주세요 : \n");
         scanf("%d", &select);
         if (select == 1){
             while(1){
+                clearbuffer();
                 printf("최신 순은 (0번) | 오래된 순 (1번)\n");
                 scanf("%d", &updown);
                 if(updown == 1 || updown == 0){
@@ -249,6 +252,7 @@ int sortpost(Post *p, int index){
         {
             printf("좋아요가 많은 순으로 게시글을 정렬합니다.\n");
             while(1){
+                clearbuffer();
                 printf("많은 순은 (0번) | 적은 순 (1번)\n");
                 scanf("%d", &updown);
                 if(updown == 1 || updown == 0){
@@ -273,6 +277,7 @@ int sortpost(Post *p, int index){
         {
             printf("조회수가 많은 순으로 게시글을 정렬합니다.\n");
             while(1){
+                clearbuffer();
                 printf("많은 순은 (0번) | 적은 순 (1번)\n");
                 scanf("%d", &updown);
                 if(updown == 1 || updown == 0){
@@ -427,4 +432,9 @@ int select_Post_DataNo(Post *p, int count){
  	printf("번호는? (취소:0)? ");
  	scanf("%d", &no);
     return no;
+}
+
+//입력 버퍼로 인한 버그수정을 위해 버퍼 비우는 함수
+void clearbuffer(){
+    while(getchar() != '\n');
 }

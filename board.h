@@ -47,3 +47,6 @@ void listuser(User *u, int count);
 //데이터 선택 함수
 int select_User_DataNo(User u[], int count);
 int select_Post_DataNo(Post p[], int count);
+
+//입력 버퍼로 인한 버그수정을 위해 버퍼 비우는 함수
+void clearbuffer();

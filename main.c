@@ -15,7 +15,7 @@ int main(void){
 
 	User userlist[100];
  	Post postlist[100];
-	int menu;
+	int menu = -1; // '입력 버퍼 제거' 버그 수정을 위해 프로그램이 첫 가동인지 확인
 	int loginflag = -1; // 로그인 상태 확인 
 	
 	int post_count = 0; // file open/load
@@ -30,6 +30,10 @@ int main(void){
 	int sort = 2; // 정렬 순서를 정합니다.
 
 	while(1){
+
+		if(menu != -1){
+			clearbuffer(); // 처음을 제외하고 계속 버퍼를 비워라 -- 무한반복 막기
+		}
 		
 		if(sort == 1)
 			sortingnew(postlist, post_index, 0);
