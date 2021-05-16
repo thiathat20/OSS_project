@@ -432,6 +432,7 @@ int select_Post_DataNo(Post *p, int count){
     while(1){
         printf("번호는? (취소:0) : ");
  	    scanf("%d", &no);
+        getchar();
         if(no > -1){
             break;
         }
