@@ -427,11 +427,18 @@ int select_User_DataNo(User *u, int count){ // 작성자로 검색할때 사용�
 
 //포스팅 데이터 선택 함수
 int select_Post_DataNo(Post *p, int count){
-    int no;
+    int no = -1;
  	readPostList(p, count);
- 	printf("번호는? (취소:0)? ");
-    // --> 아래의 경우 잘못된 입력시 프로그램 종료됨
- 	scanf("%d", &no);
+    while(1){
+        printf("번호는? (취소:0) : ");
+ 	    scanf("%d", &no);
+        if(no > -1){
+            break;
+        }
+        else{
+            printf("번호를 잘못 입력하셨습니다. 다시 입력해주세요.\n");
+        }
+    }
     return no;
 }
 
