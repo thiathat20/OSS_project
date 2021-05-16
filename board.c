@@ -437,6 +437,8 @@ int select_Post_DataNo(Post *p, int count){
         }
         else{
             printf("번호를 잘못 입력하셨습니다. 다시 입력해주세요.\n");
+            printf("번호는? (취소:0) : ");
+            scanf("%d", &no);
         }
     }
     return no;
