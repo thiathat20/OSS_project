@@ -29,6 +29,7 @@ int sortpost(Post *p, int index);
 // 8. 게시판 저장 (입력: 게시판 구조체 배열, 출력:)
 void saveboard(Post *p, int count);
 void saveuser(User *u, int count);
+// 게시판 불러오기
 int loadboard(Post *p);
 int loaduser(User *u);
 

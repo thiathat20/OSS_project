@@ -50,15 +50,15 @@ void readOnePost(Post p){ // 게시글 리스트 번호 출력
 }
 
 // 3. 게시판 글쓰기 (입력: 이용중인 계정 구조체, 카운터(리턴), 게시판 리스트 포인터, 출력: 1 or 0)
-//post_crud.c
+//post_crud.c - addpost참고
 
 
 // 4. 게시글 삭제 (입력: 게시판 구조체 배열 포인터, 계정 구조체, 출력: 1 or 0)
-// crud.h - deletepost
+// post_crud.c - deletepost 참고
 
 
 // 5. 게시글 수정 (입력: 게시판 구조체 배열 포인터, 출력:)
-// crud.h update
+// post_crud.c - updatepost 참고
 
 
 // 6. 게시글 검색 (제목, 작성자, 내용 키워드)(입력: 게시판 구조체 배열, 출력:)
@@ -391,6 +391,7 @@ int login(User *u, int count){
     printf("없는 계정입니다.\n");
     return -1;
 }
+
 // 10. 로그아웃 - 로그인 여부 0
 int logout(){
     printf("로그아웃 되었습니다.\n");

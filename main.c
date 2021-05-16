@@ -176,7 +176,6 @@ int main(void){
 			loginflag = logout();
 		}
 		else if(menu == 11){ // 계정 생성
-			// user_count += addUser(&userlist[user_index++]); // -- 계정 중복 확인 가능하게 아래처럼 변경 
 			if(addUser(userlist, user_index)){
 				user_index++;
 				user_count++;
@@ -187,21 +186,19 @@ int main(void){
 		}
 		else if(menu == 13){ // 계정 비밀번호 수정
 			int no = loginflag;
-			if(loginflag != -1){ // 로그인 여부, 로그인 이용자 번호 따로 분리시키기
+			if(loginflag != -1){
 				updateuser(&userlist[no]);
 			}
 		}
-		else if(menu == 14){
+		else if(menu == 14){ // 계정 삭제
 			int no = loginflag;
-			// if(loginflag != -1){ // 로그인 여부, 로그인 이용자 번호 따로 분리시키기
-				int deleteok ;
-				printf("정말로 삭제하시겠습니까?(삭제:1)");
-				scanf("%d", &deleteok);
-				if(deleteok == 1){
-					deleteuser(&userlist[no]);
-					user_count--;
-				}
-			// }
+			int deleteok ;
+			printf("정말로 삭제하시겠습니까?(삭제:1)");
+			scanf("%d", &deleteok);
+			if(deleteok == 1){
+				deleteuser(&userlist[no]);
+				user_count--;
+			}
 			loginflag = -1; // 삭제와 동시에 로그아웃
 		}
 	}
