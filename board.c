@@ -430,6 +430,7 @@ int select_Post_DataNo(Post *p, int count){
     int no;
  	readPostList(p, count);
  	printf("번호는? (취소:0)? ");
+    // --> 아래의 경우 잘못된 입력시 프로그램 종료됨
  	scanf("%d", &no);
     return no;
 }
